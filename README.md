@@ -1,2 +1,2 @@
 # callbag-jsx
-callbags + JSX: super fast, super thiny interactive web apps
+callbags + JSX: super fast, super tiny interactive web apps
