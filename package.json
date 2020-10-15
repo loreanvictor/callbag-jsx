@@ -1,21 +1,28 @@
 {
   "name": "callbag-jsx",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "callbags + JSX: super fast and super thiny interactive web apps",
-  "main": "index.js",
+  "main": "dist/es5/index.js",
+  "module": "dist/es6/index.js",
+  "types": "dist/es6/index.d.ts",
   "scripts": {
     "start": "webpack serve --config ./conf/webpack/dev.conf.ts",
     "watch": "webpack --config ./conf/webpack/dev.conf.ts --watch",
     "build-bundle": "webpack --config ./conf/webpack/prod.conf.ts",
-    "build-es5": "tsc -p conf/typescript/es5.json && cp -rf ./src/typings dist/es5 && rm -fr dist/es5/typings/index.ts",
-    "build-es6": "tsc -p conf/typescript/es6.json && cp -rf ./src/typings dist/es6 && rm -fr dist/es6/typings/index.ts",
+    "build-es5": "tsc -p conf/typescript/es5.json",
+    "build-es6": "tsc -p conf/typescript/es6.json",
     "build": "npm run build-es5 && npm run build-es6",
     "test": "npm test"
   },
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/loreanvictor/callbag-jsx.git"
   },
+  "files": [
+    "dist/es6",
+    "dist/es5"
+  ],
   "keywords": [
     "JSX",
     "callbags",
@@ -34,6 +41,7 @@
     "render-jsx": "0.0.14"
   },
   "devDependencies": {
+    "@types/jsdom": "^16.2.4",
     "@types/node": "^14.11.8",
     "@types/webpack": "^4.41.22",
     "callbag": "^1.2.0",
