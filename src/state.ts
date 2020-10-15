@@ -1,5 +1,5 @@
 import { Source, Sink } from 'callbag';
-import { end, greetSink, isData, isEnd, isStart, MsgType, relay, send } from './types';
+import { terminate, greet, isData, isEnd, isStart, MsgType, relay, deliver } from './types';
 
 
 export type State<T> = Source<T> & Sink<T> & {
@@ -11,14 +11,19 @@ export type State<T> = Source<T> & Sink<T> & {
 
 export function makeState<T>(initial: T): State<T> {
   let value = initial;
+  let done = false;
   const sinks: Sink<T>[] = [];
 
   const state: State<T> = (type: MsgType, msg?:  any) => {
+    if (done) {
+      return;
+    }
+
     if (isStart(type)) {
       const sink = msg as Sink<T>;
       sinks.push(sink);
 
-      greetSink(sink, req => {
+      greet(sink, req => {
         if (isEnd(req)) {
           const index = sinks.indexOf(sink);
           if (index >= 0) {
@@ -26,7 +31,7 @@ export function makeState<T>(initial: T): State<T> {
           }
         }
       });
-      send(sink, value);
+      deliver(sink, value);
     } else {
       if (isData(type)) {
         value = msg;
@@ -38,12 +43,17 @@ export function makeState<T>(initial: T): State<T> {
           relay(sink, type, msg);
         }
       });
+
+      if (isEnd(type)) {
+        done = true;
+        sinks.length = 0;
+      }
     }
   };
 
   state.get = () => value;
-  state.set = (t: T) => send(state as Sink<T>, t);
-  state.clear = () => end(state);
+  state.set = (t: T) => deliver(state as Sink<T>, t);
+  state.clear = () => terminate(state);
 
   return state;
 }

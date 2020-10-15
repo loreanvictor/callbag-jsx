@@ -1,3 +1,5 @@
+// tslint:disable: no-magic-numbers
+
 import pipe from 'callbag-pipe';
 import map from 'callbag-map';
 

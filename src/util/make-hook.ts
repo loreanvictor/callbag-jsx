@@ -2,7 +2,7 @@ import { LifeCycleHook } from 'render-jsx';
 import { Source } from 'callbag';
 
 import { makeSink } from './make-sink';
-import { end, greetSource } from '../types';
+import { terminate, greet } from '../types';
 
 
 export function makeHook<T>(source: Source<T>, op: (value: T) => void): LifeCycleHook {
@@ -10,8 +10,8 @@ export function makeHook<T>(source: Source<T>, op: (value: T) => void): LifeCycl
 
   return {
     bind() {
-      greetSource(source, makeSink<T>({
-        greet(talkback) { dispose = () => end(talkback); },
+      greet(source, makeSink<T>({
+        greet(talkback) { dispose = () => terminate(talkback); },
         receive(value) { op(value); },
         terminate() { dispose = undefined; }
       }));
