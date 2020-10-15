@@ -1,0 +1,31 @@
+{
+  "rules": {
+    "adjacent-overload-signatures": true,
+    "no-import-side-effect": true,
+    "no-magic-numbers": [true, 0, 1, 2, 100], 
+    "no-parameter-reassignment": true,
+    "unified-signatures": true,
+    "curly": true,
+    "semicolon": [true, "always"],
+    "quotemark": [true, "single", "avoid-escape"],
+    "no-shadowed-variable": true,
+    "no-unused-variable": [true, "check-parameters", {"ignore-pattern": "^_"}],
+    "no-unused-expression": true,
+    "prefer-object-spread": true,
+    "triple-equals": true,
+    "prefer-const": true,
+    "deprecation": true,
+    "invalid-void": true,
+    "max-file-line-count": [true, 256],
+    "max-line-length": [true, 120],
+    "no-inferrable-types": true,
+    "eofline": true,
+    "prefer-readonly": true,
+    "no-default-export": true,
+    "no-default-import": true,
+    "newline-before-return": true,
+    "indent": [true, "spaces", 2],
+    "no-trailing-whitespace": true,
+    "cyclomatic-complexity": [true, 9]
+  }
+}
