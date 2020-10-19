@@ -26,6 +26,7 @@ export function SimpleList(
     this.track(tap((v: any[]) => src.set(v))(props.of));
   }
 
+  this.track(src);
   this.track(tap((l: any[]) => {
     if (l.length > markers.length) {
       let prevMark = markers[markers.length - 1] || startMark;

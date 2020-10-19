@@ -1,5 +1,7 @@
 // tslint:disable: no-magic-numbers
 
+import pipe from 'callbag-pipe';
+import subscribe from 'callbag-subscribe';
 import expr from 'callbag-expr';
 import state from 'callbag-state';
 
@@ -7,7 +9,13 @@ import { List, makeRenderer } from '../src';
 
 const renderer = makeRenderer();
 
-const todos = state<{ title: string; }[]>([]);
+const initial = [
+  {title: 'Do this'},
+  {title: 'Do that'},
+  {title: 'Perhaps this as well'}
+];
+
+const todos = state<{ title: string; }[]>(initial);
 const next = state('');
 
 renderer.render(<>
@@ -15,7 +23,7 @@ renderer.render(<>
   <ol>
     <List of={todos} each={todo => (
       <li>
-        {todo.sub('title')} --------
+        {todo.sub('title')}
         <button onclick={() => todos.set(todos.get()!!.filter(t => t !== todo.get()))}>X</button>
       </li>
     )}/>
@@ -26,3 +34,4 @@ renderer.render(<>
     next.set('');
   }}>Add #{expr($ => $(todos, []).length + 1)}</button>
 </>).on(document.body);
+
