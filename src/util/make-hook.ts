@@ -5,14 +5,14 @@ import { makeSink } from './make-sink';
 import { terminate, greet } from '../types';
 
 
-export function makeHook<T>(source: Source<T>, op: (value: T) => void): LifeCycleHook {
+export function makeHook<T>(source: Source<T>, op?: (value: T) => void): LifeCycleHook {
   let dispose: (() => void) | undefined = undefined;
 
   return {
     bind() {
       greet(source, makeSink<T>({
         greet(talkback) { dispose = () => terminate(talkback); },
-        receive(value) { op(value); },
+        receive(value) { if (op) { op(value); } },
         terminate() { dispose = undefined; }
       }));
     },
