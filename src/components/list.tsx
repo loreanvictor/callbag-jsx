@@ -2,9 +2,9 @@ import { LiveDOMRenderer } from 'render-jsx/dom';
 import { SimpleList, SimpleListProps } from './simple-list';
 
 
-export type ListProps = SimpleListProps;
+export type ListProps<T> = SimpleListProps<T>;
 
 
-export function List(props: ListProps, renderer: LiveDOMRenderer) {
+export function List<T>(props: ListProps<T>, renderer: LiveDOMRenderer) {
   return <SimpleList {...props}/>;
 }

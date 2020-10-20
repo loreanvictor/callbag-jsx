@@ -2,10 +2,12 @@ import { CommonDOMRenderer } from 'render-jsx/dom';
 import {
   CallbagAppendPlugin,
   CallbagContentPlugin,
+  CallbagEventHandlerPlugin,
   CallbagInputStatePlugin,
   CallbagPropPlugin,
   CallbagTrackPlugin
 } from './plugins';
+
 
 
 export function makeRenderer() {
@@ -15,6 +17,7 @@ export function makeRenderer() {
     () => new CallbagContentPlugin<Node>(),
     () => new CallbagTrackPlugin<Node>(),
     () => new CallbagInputStatePlugin(),
+    () => new CallbagEventHandlerPlugin(),
   );
 }
 

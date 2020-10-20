@@ -1,3 +1,5 @@
+// TODO: move this to render-jsx/dom/util
+
 export interface ScanOptions {
   includeStart?: boolean;
   includeEnd?: boolean;

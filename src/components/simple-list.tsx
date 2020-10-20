@@ -1,33 +1,34 @@
-import { Callbag } from 'callbag';
+import { Source } from 'callbag';
 import { LiveDOMRenderer, LiveDOMComponentThis } from 'render-jsx/dom';
 import { state, State, isState } from 'callbag-state';
 import { TrackerComponentThis } from '../plugins';
 import { tap } from '../util/tap';
 import { scanRemove } from '../util/scan-remove';
+import { SubState } from 'callbag-state/dist/es6/types';
 
 
-export interface SimpleListProps {
-  of: Callbag<any, any[]>;
-  each: (item: State<any>) => Node;
+export interface SimpleListProps<T>{
+  of: Source<T[]>;
+  each: (item: SubState<T[], number>) => Node;
 }
 
-export function SimpleList(
+export function SimpleList<T>(
   this: TrackerComponentThis & LiveDOMComponentThis,
-  props: SimpleListProps,
+  props: SimpleListProps<T>,
   renderer: LiveDOMRenderer,
 ) {
   const markers: Node[] = [];
   const startMark = renderer.create('_marker');
   this.setLifeCycleMarker(startMark);
 
-  let src = props.of as State<any[]>;
+  let src = props.of as State<T[]>;
   if (!isState(props.of)) {
-    src = state<any[]>([]);
-    this.track(tap((v: any[]) => src.set(v))(props.of));
+    src = state<T[]>([]);
+    this.track(tap((v: T[]) => src.set(v))(props.of));
   }
 
   this.track(src);
-  this.track(tap((l: any[]) => {
+  this.track(tap((l: T[]) => {
     if (l.length > markers.length) {
       let prevMark = markers[markers.length - 1] || startMark;
 
