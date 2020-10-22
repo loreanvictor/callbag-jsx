@@ -1,6 +1,6 @@
 {
   "name": "callbag-jsx",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "callbags + JSX: super fast and super thiny interactive web apps",
   "main": "dist/es5/index.js",
   "module": "dist/es6/index.js",
@@ -38,7 +38,8 @@
   },
   "homepage": "https://github.com/loreanvictor/callbag-jsx#readme",
   "dependencies": {
-    "callbag-state": "^0.1.4",
+    "callbag-state": "^0.1.8",
+    "callbag-state-keyed": "0.0.4",
     "render-jsx": "0.0.17"
   },
   "devDependencies": {

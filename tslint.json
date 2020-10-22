@@ -2,7 +2,7 @@
   "rules": {
     "adjacent-overload-signatures": true,
     "no-import-side-effect": true,
-    "no-magic-numbers": [true, 0, 1, 2, 100], 
+    "no-magic-numbers": [true, 0, 1, 2, -1, 100], 
     "no-parameter-reassignment": true,
     "unified-signatures": true,
     "curly": true,
