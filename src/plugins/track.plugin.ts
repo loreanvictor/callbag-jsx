@@ -5,7 +5,7 @@ import { isCallbag } from '../types';
 import { makeHook } from '../util';
 
 
-type Trackable = Callbag<any, any> | (() => void);
+type Trackable<T> = Callbag<never, T> | (() => void);
 
 
 export class CallbagTrackPlugin<Node>
@@ -14,10 +14,10 @@ export class CallbagTrackPlugin<Node>
     provide: (provision: ComponentProvision) => void,
     post: (processor: ComponentPostProcessor<Node>) => void,
   ): void {
-    const tracked: Trackable[] = [];
+    const tracked: Trackable<any>[] = [];
 
     provide({
-      track: (trackable: Trackable) => tracked.push(trackable)
+      track: <T>(trackable: Trackable<T>) => tracked.push(trackable)
     });
 
     post(node => {
@@ -38,5 +38,5 @@ export class CallbagTrackPlugin<Node>
 
 
 export interface TrackerComponentThis {
-  track: (trackable: Trackable) => void;
+  track: <T>(trackable: Trackable<T>) => void;
 }

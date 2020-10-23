@@ -8,12 +8,22 @@ import { scanRemove } from '../util/scan-remove';
 import { tap } from '../util/tap';
 
 
-export interface KeyedListProps<T> {
+interface KeyedListPropsWithKey<T> {
   of: Source<T[]>;
   each: (item: SubState<T[], number>, index: Source<number>) => Node;
-  key?: KeyFunc<T>;
+  key: KeyFunc<T>;
 }
 
+interface KeyedListPropsWithoutKey<T> {
+  of: KeyedState<T>;
+  each: (item: SubState<T[], number>, index: Source<number>) => Node;
+}
+
+export type KeyedListProps<T> = KeyedListPropsWithKey<T> | KeyedListPropsWithoutKey<T>;
+
+function isWithKeys<T>(props: KeyedListProps<T>): props is KeyedListPropsWithKey<T> {
+  return (props as any).key && typeof (props as any).key === 'function';
+}
 
 export function KeyedList<T>(
   this: TrackerComponentThis & LiveDOMComponentThis,
@@ -26,6 +36,7 @@ export function KeyedList<T>(
 
   let src = props.of as KeyedState<T>;
   if (!isKeyedState<T[]>(src)) {
+    if (!isWithKeys(props)) { throw Error('You must provide a key function to KeyedList component.'); }
     if (isState<T[]>(src)) {
       src = keyed(src as any, props.key!!);
     } else {
