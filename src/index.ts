@@ -1,6 +1,8 @@
 import { CommonDOMRenderer, LiveDOMRenderer } from 'render-jsx/dom';
 import {
   CallbagAppendPlugin,
+  CallbagClassPlugin,
+  CallbagStylePlugin,
   CallbagContentPlugin,
   CallbagEventHandlerPlugin,
   CallbagInputStatePlugin,
@@ -18,6 +20,8 @@ export function makeRenderer() {
     () => new CallbagTrackPlugin<Node>(),
     () => new CallbagInputStatePlugin(),
     () => new CallbagEventHandlerPlugin(),
+    () => new CallbagClassPlugin(),
+    () => new CallbagStylePlugin(),
   ) as LiveDOMRenderer;
 }
 

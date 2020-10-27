@@ -3,8 +3,8 @@ import { LiveDOMRenderer, LiveDOMComponentThis } from 'render-jsx/dom';
 import { state, State, isState } from 'callbag-state';
 import { TrackerComponentThis } from '../plugins';
 import { tap } from '../util/tap';
-import { scanRemove } from '../util/scan-remove';
 import { SubState } from 'callbag-state/dist/es6/types';
+import { scanRemove } from 'render-jsx/dom/util';
 
 
 export interface SimpleListProps<T>{

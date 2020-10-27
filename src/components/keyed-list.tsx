@@ -2,9 +2,9 @@ import { Source } from 'callbag';
 import { state, isState, SubState } from 'callbag-state';
 import { keyed, isKeyedState, KeyedState, KeyFunc, ListChanges } from 'callbag-state-keyed';
 import { LiveDOMComponentThis, LiveDOMRenderer } from 'render-jsx/dom';
+import { scanRemove } from 'render-jsx/dom/util';
 
 import { TrackerComponentThis } from '../plugins';
-import { scanRemove } from '../util/scan-remove';
 import { tap } from '../util/tap';
 
 
@@ -96,8 +96,6 @@ export function KeyedList<T>(
     .sort((a, b) =>  Math.abs(tr(b.oldIndex) - b.newIndex) - Math.abs(tr(a.oldIndex) - a.newIndex))
     .forEach(move => {
       if (tr(move.oldIndex) === move.newIndex) { return; }
-
-      console.log(move);
 
       const nodes = del(move.oldIndex);
       add(move.newIndex, nodes, true);

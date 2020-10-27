@@ -6,6 +6,6 @@
   },
   "include": [
     "./src/**/*",
-    "./samples/**/*"
+    "./samples/**/*",
   ]
 }
