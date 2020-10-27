@@ -1,6 +1,6 @@
 import { Source } from 'callbag';
 import { state, isState, SubState } from 'callbag-state';
-import { keyed, isKeyedState, KeyedState, KeyFunc, ListChanges } from 'callbag-state-keyed';
+import { keyed, isKeyedState, KeyedState, KeyFunc, ListChanges, Addition } from 'callbag-state-keyed';
 import { LiveDOMComponentThis, LiveDOMRenderer } from 'render-jsx/dom';
 import { scanRemove } from 'render-jsx/dom/util';
 
@@ -31,7 +31,7 @@ export function KeyedList<T>(
   renderer: LiveDOMRenderer,
 ) {
   const markers: Node[] = [];
-  const startMark = renderer.create('_marker');
+  const startMark = renderer.leaf();
   this.setLifeCycleMarker(startMark);
 
   let src = props.of as KeyedState<T>;
@@ -49,16 +49,15 @@ export function KeyedList<T>(
   this.track(src);
 
   this.onBind(() => {
+    const frag = <></>;
     (src.get() || []).forEach((entry: any) => {
       const key = src.keyfunc(entry);
-      const prevMarker = markers[markers.length - 1] || startMark;
-      const marker = renderer.create('_marker');
+      const marker = renderer.leaf();
       markers.push(marker);
-      renderer.render(<>
-        {props.each(src.key(key), src.index(key))}
-        {marker}
-      </>).after(prevMarker);
+      renderer.render(props.each(src.key(key), src.index(key))).on(frag);
+      renderer.render(marker).on(frag);
     });
+    renderer.render(frag).after(startMark);
   });
 
   this.track(tap((changes: ListChanges<T>) => {
@@ -79,16 +78,24 @@ export function KeyedList<T>(
     const add = (i: number, nodes: Node[], hasMarker = false) => {
       const index = i;
       const start = markers[index - 1] || startMark;
-      const marker = hasMarker ? nodes[nodes.length - 1] : renderer.create('_marker');
-      renderer.render(<>{nodes}{hasMarker ? '' : marker}</>).after(start);
+      const marker = hasMarker ? nodes[nodes.length - 1] : renderer.leaf();
+      const frag = <></>;
+      nodes.forEach(node => renderer.render(node).on(frag));
+      if (!hasMarker) { renderer.render(marker).on(frag); }
+      renderer.render(frag).after(start);
       markers.splice(index, 0, marker);
       shifts.push([index, +1]);
     };
 
+    const appends: Addition<T>[] = [];
     changes.deletions.forEach(deletion => del(deletion.index));
     changes.additions.forEach(addition => {
-      const key = src.keyfunc(addition.item);
-      add(addition.index, [props.each(src.key(key), src.index(key))]);
+      if (tr(addition.index) > markers.length) {
+        appends.push(addition);
+      } else {
+        const key = src.keyfunc(addition.item);
+        add(addition.index, [props.each(src.key(key), src.index(key))]);
+      }
     });
 
     changes.moves
@@ -100,6 +107,20 @@ export function KeyedList<T>(
       const nodes = del(move.oldIndex);
       add(move.newIndex, nodes, true);
     });
+
+    if (appends.length > 0) {
+      const frag = <></>;
+      const start = markers[markers.length - 1];
+      appends.forEach(append => {
+        const marker = renderer.leaf();
+        markers.push(marker);
+        const key = src.keyfunc(append.item);
+        renderer.render(props.each(src.key(key), src.index(key))).on(frag);
+        renderer.render(marker).on(frag);
+      });
+
+      renderer.render(frag).after(start);
+    }
   })(src.changes()));
 
   return <>{startMark}</>;

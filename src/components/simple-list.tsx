@@ -18,7 +18,7 @@ export function SimpleList<T>(
   renderer: LiveDOMRenderer,
 ) {
   const markers: Node[] = [];
-  const startMark = renderer.create('_marker');
+  const startMark = renderer.leaf();
   this.setLifeCycleMarker(startMark);
 
   let src = props.of as State<T[]>;
@@ -30,14 +30,17 @@ export function SimpleList<T>(
   this.track(src);
   this.track(tap((l: T[]) => {
     if (l.length > markers.length) {
-      let prevMark = markers[markers.length - 1] || startMark;
+      const start = markers[markers.length - 1] || startMark;
+      const frag = <></>;
 
       for (let index = markers.length; index < l.length; index++) {
-        const marker = renderer.create('_marker');
-        renderer.render(<>{props.each(src.sub(index))}{marker}</>).after(prevMark);
-        prevMark = marker;
+        const marker = renderer.leaf();
+        renderer.render(props.each(src.sub(index))).on(frag);
+        renderer.render(marker).on(frag);
         markers.push(marker);
       }
+
+      renderer.render(frag).after(start);
     } else if (l.length < markers.length) {
       const prevMark = markers[l.length - 1] || startMark;
 
