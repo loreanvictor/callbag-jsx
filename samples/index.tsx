@@ -14,25 +14,24 @@ const data = state([
   {id: 5, name: 'EEE'},
 ]);
 
+
 const next = state('');
-const show = state(true);
 
 renderer.render(<>
-  <Conditional if={show} then={
-    () => <>
+  <Conditional if={expr($ => $(data)!!.length > 0)} then={
+    () => <div>
       <List of={data} each={item => <div>{item.sub('name')}</div>} key={i => i.id}/>
       <button onclick={() => {
         const A = data.sub(1).get();
         const B = data.sub(3).get();
 
-
-        data.sub(3).set({id: -1, name: ''});
-        data.sub(1).set(B!!);
-        data.sub(3).set(A!!);
+        data.get()[1] = B!!;
+        data.get()[3] = A!!;
+        data.set(data.get());
       }}>Swap</button>
-    </>
+    </div>
   } else={() => <>Nothing to see here</>}/>
-  <button onclick={() => show.set(!show.get())}>Toggle</button>
+  <button onclick={() => data.set([])}>Toggle</button>
   <br/>
   <input type='text' _state={next}/>
   <button onclick={() => data.set(data.get().concat({id: data.get().length + 1, name: next.get()}))}>ADD</button>

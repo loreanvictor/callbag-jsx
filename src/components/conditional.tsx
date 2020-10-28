@@ -20,8 +20,11 @@ export function Conditional(
 ) {
   const start = renderer.leaf();
   const end = renderer.leaf();
+  this.setLifeCycleMarker(start);
+
   let last: boolean | undefined = undefined;
 
+  this.track(props.if);
   this.track(tap((v: boolean) => {
     if (v === last) { return; }
     last = v;

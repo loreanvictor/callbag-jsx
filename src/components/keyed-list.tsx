@@ -61,6 +61,10 @@ export function KeyedList<T>(
   });
 
   this.track(tap((changes: ListChanges<T>) => {
+    if (!renderer.document.contains(startMark)) {
+      return;
+    }
+
     const shifts: [index: number, shift: number][] = [];
     const tr = (i: number) => shifts.reduce((_i, shift) => _i >= shift[0] ? _i + shift[1] : _i, i);
 
