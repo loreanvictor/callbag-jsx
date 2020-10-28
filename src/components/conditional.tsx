@@ -26,10 +26,10 @@ export function Conditional(
     if (v === last) { return; }
     last = v;
     if (v) {
-      scanRemove(start, end);
+      scanRemove(start, end, { remove: n => renderer.remove(n) });
       renderer.render(props.then()).after(start);
     } else {
-      scanRemove(start, end);
+      scanRemove(start, end, { remove: n => renderer.remove(n) });
       if (props.else) {
         renderer.render(props.else()).after(start);
       }

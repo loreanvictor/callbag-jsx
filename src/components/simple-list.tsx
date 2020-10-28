@@ -46,7 +46,8 @@ export function SimpleList<T>(
 
       for (let index = l.length; index < markers.length; index++) {
         scanRemove(prevMark, markers[index], {
-          includeEnd: true
+          includeEnd: true,
+          remove: n => renderer.remove(n)
         });
       }
 

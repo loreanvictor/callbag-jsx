@@ -68,7 +68,7 @@ export function KeyedList<T>(
       const index = tr(i);
       const start = markers[index - 1] || startMark;
       const end = markers[index];
-      const nodes = scanRemove(start, end, { includeEnd: true });
+      const nodes = scanRemove(start, end, { includeEnd: true, remove: n => renderer.remove(n) });
       markers.splice(index, 1);
       shifts.push([index, -1]);
 
