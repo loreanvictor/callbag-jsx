@@ -26,6 +26,6 @@
     "newline-before-return": true,
     "indent": [true, "spaces", 2],
     "no-trailing-whitespace": true,
-    "cyclomatic-complexity": [true, 9]
+    "cyclomatic-complexity": [true, 16]
   }
 }
