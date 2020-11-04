@@ -4,7 +4,6 @@ import { AppendPlugin, Plugin } from 'render-jsx/plugin';
 import { isCallbag } from '../types';
 import { makeHook } from '../util';
 
-import { log } from '../util/log';
 
 export class CallbagAppendPlugin<N> extends Plugin<N, LiveRendererLike<N>> implements AppendPlugin<N> {
   priority(): number {
@@ -17,9 +16,7 @@ export class CallbagAppendPlugin<N> extends Plugin<N, LiveRendererLike<N>> imple
       const leaf = renderer.leaf();
 
       renderer.hook(leaf, makeHook(target, value => {
-        log('C');
         renderer.setContent(leaf, value);
-        log('D');
       }));
       renderer.append(leaf, host);
 

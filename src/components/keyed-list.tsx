@@ -10,13 +10,13 @@ import { tap } from '../util/tap';
 
 interface KeyedListPropsWithKey<T> {
   of: Source<T[]>;
-  each: (item: SubState<T[], number>, index: Source<number>) => Node;
+  each: (item: SubState<T[], number>, index: Source<number> & { get(): number | undefined }) => Node;
   key: KeyFunc<T>;
 }
 
 interface KeyedListPropsWithoutKey<T> {
   of: KeyedState<T>;
-  each: (item: SubState<T[], number>, index: Source<number>) => Node;
+  each: (item: SubState<T[], number>, index: Source<number> & { get(): number | undefined }) => Node;
 }
 
 export type KeyedListProps<T> = KeyedListPropsWithKey<T> | KeyedListPropsWithoutKey<T>;
