@@ -2,6 +2,7 @@ import { Source } from 'callbag';
 import { KeyFunc, Watcher } from 'callbag-state-keyed';
 import { KeyMap } from 'callbag-state-keyed/dist/es6/types';
 import { LiveDOMComponentThis, LiveDOMRenderer } from 'render-jsx/dom';
+
 import { TrackerComponentThis } from '../plugins';
 import { mapDistinct } from '../util/map-distinct';
 import { subject } from '../util/subject';

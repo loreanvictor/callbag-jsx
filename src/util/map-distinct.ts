@@ -10,17 +10,19 @@ export function mapDistinct<I, O>(
   let last: O | typeof _N = _N;
 
   const c = (start: START | DATA | END, sink: any) => {
+    let _last: O | typeof _N = _N;
     if (!isStart(start)) { return; }
     src(0, (t: START | DATA | END, d?: any) => {
       if (isData(t)) {
         const res = map(d);
-        if (res !== last) {
-          sink(1, last = res);
+        if (res !== _last) {
+          sink(1, last = _last = res);
         }
       } else {
         sink(t, d);
       }
     });
+    if (last !== _N) { sink(1, last); }
   };
 
   c.get = () => last === _N ? undefined : last as O;
