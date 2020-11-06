@@ -27,4 +27,4 @@ export function makeRenderer() {
 
 
 export { TrackerComponentThis } from './plugins';
-export { List, Conditional } from './components';
+export { For, List, Conditional } from './components';

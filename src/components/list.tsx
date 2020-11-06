@@ -6,7 +6,6 @@ import { KeyedList, KeyedListProps } from './keyed-list';
 import { SimpleList, SimpleListProps } from './simple-list';
 
 
-
 export function List<T>(props: SimpleListProps<T>, renderer: LiveDOMRenderer): Node;
 export function List<T>(props: KeyedListProps<T>, renderer: LiveDOMRenderer): Node;
 export function List<T>(props: SimpleListProps<T> | KeyedListProps<T>, renderer: LiveDOMRenderer) {
