@@ -11,7 +11,7 @@ import { update } from './util/keyed-collections';
 
 export interface KeyedForProps<T> {
   of: Source<T[]>;
-  each: (item: Source<T>, index: Source<number> & { get(): number | undefined }) => Node;
+  each: (item: Source<T> & { get(): T | undefined }, index: Source<number> & { get(): number | undefined }) => Node;
   key: KeyFunc<T>;
 }
 

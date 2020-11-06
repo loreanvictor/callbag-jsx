@@ -8,7 +8,7 @@ import { update } from './util/simple-collections';
 
 export interface SimpleForProps<T> {
   of: Source<T[]>;
-  each: (item: Source<T>, index: number) => Node;
+  each: (item: Source<T> & { get(): T | undefined }, index: number) => Node;
 }
 
 
