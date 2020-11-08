@@ -11,10 +11,15 @@ export function update<T>(
     const frag = <></>;
 
     for (let index = markers.length; index < l.length; index++) {
-      const marker = renderer.leaf();
-      renderer.render(each(index)).on(frag);
-      renderer.render(marker).on(frag);
-      markers.push(marker);
+      const node = each(index);
+      renderer.render(node).on(frag);
+      if (node instanceof DocumentFragment) {
+        const marker = renderer.leaf();
+        renderer.render(marker).on(frag);
+        markers.push(marker);
+      } else {
+        markers.push(node);
+      }
     }
 
     renderer.render(frag).after(start);

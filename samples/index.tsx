@@ -1,18 +1,14 @@
 // tslint:disable: no-magic-numbers
 
 const sub = require('callbag-behavior-subject').default;
-import { Callbag } from 'callbag';
-import expr from 'callbag-expr';
+import state from 'callbag-state';
 
-import { makeRenderer, For } from '../src';
+import { makeRenderer, List } from '../src';
 
 const renderer = makeRenderer();
-type Data = { id: number, label: string };
-const l: Callbag<Data[], Data[]>= sub([{id: 1, label: 'hellow'}]);
+const s = state([{i: 1, c: 'A'}, {i: 2, c: 'B'}]);
 
-renderer.render(<>
-  <For of={l} key={x => x.id} each={(x) => <>
-    <div>{expr($ => $(x)?.id)}</div>
-    <div>{expr($ => $(x)?.label)}</div>
-  </>}/>
-</>).on(document.body);
+renderer.render(<List of={s} each={x => <span>{x.sub('c')}</span>}/>).on(document.body);
+
+s.set([{i: 2, c: 'B'}, {i: 1, c: 'A'}]);
+s.set([{i: 2, c: 'B'}, {i: 1, c: 'C'}]);

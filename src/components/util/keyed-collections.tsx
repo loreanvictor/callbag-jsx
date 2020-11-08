@@ -26,10 +26,15 @@ export function init<T>(
     entry = _src[++i]
   ) {
     const key = keyfunc(entry);
-    const marker = renderer.leaf();
-    markers.push(marker);
-    renderer.render(each(key)).on(frag);
-    renderer.render(marker).on(frag);
+    const node = each(key);
+    renderer.render(node).on(frag);
+    if (node instanceof DocumentFragment) {
+      const marker = renderer.leaf();
+      markers.push(marker);
+      renderer.render(marker).on(frag);
+    } else {
+      markers.push(node);
+    }
   }
   renderer.render(frag).after(startMark);
 }
@@ -70,7 +75,7 @@ export function update<T>(
   for (let i = 0, move = moves[i]; i < moves.length; move = moves[++i]) {
     if (tr(move.oldIndex, shifts) === move.newIndex) { continue; }
 
-    const nodes = del(move.oldIndex, markers, startMark, renderer, shifts);
+    const nodes = del(move.oldIndex, markers, startMark, renderer, shifts, true);
     add(move.newIndex, nodes, true, markers, startMark, renderer, shifts);
   }
 
@@ -90,11 +95,12 @@ export function update<T>(
 }
 
 
-export function del(i: number, markers: Node[], startMark: Node, renderer: LiveDOMRenderer, shifts: Shift[]) {
+export function del(i: number, markers: Node[], startMark: Node, renderer: LiveDOMRenderer,
+    shifts: Shift[], temp = false) {
   const index = tr(i, shifts);
   const start = markers[index - 1] || startMark;
   const end = markers[index];
-  const nodes = scanRemove(start, end, { includeEnd: true, remove: n => renderer.remove(n) });
+  const nodes = scanRemove(start, end, { includeEnd: true, remove: n => renderer.remove(n, temp) });
   markers.splice(index, 1);
   shifts.push([index, -1]);
 
@@ -108,12 +114,17 @@ export function add(
   const index = i;
   const start = markers[index - 1] || startMark;
   const marker = hasMarker ? nodes[nodes.length - 1] : renderer.leaf();
-  const frag = <></>;
-  for (let _i = 0, node = nodes[_i]; _i < nodes.length; node = nodes[++_i]) {
-    renderer.render(node).on(frag);
+  if (nodes.length === 1 && hasMarker) {
+    renderer.render(nodes[0]).after(start);
+  } else {
+    const frag = <></>;
+    for (let _i = 0, node = nodes[_i]; _i < nodes.length; node = nodes[++_i]) {
+      renderer.render(node).on(frag);
+    }
+    if (!hasMarker) { renderer.render(marker).on(frag); }
+    renderer.render(frag).after(start);
   }
-  if (!hasMarker) { renderer.render(marker).on(frag); }
-  renderer.render(frag).after(start);
+
   markers.splice(index, 0, marker);
   shifts.push([index, +1]);
 }
