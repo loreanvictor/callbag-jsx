@@ -1,6 +1,6 @@
 {
   "name": "callbag-jsx",
-  "version": "0.0.27",
+  "version": "0.0.29",
   "description": "callbags + JSX: super fast and super thiny interactive web apps",
   "main": "dist/es5/index.js",
   "module": "dist/es6/index.js",
@@ -41,7 +41,7 @@
     "callbag": "^1.3.0",
     "callbag-state": "^0.2.0",
     "callbag-state-keyed": "^0.2.1",
-    "render-jsx": "^0.2.2"
+    "render-jsx": "^0.2.4"
   },
   "devDependencies": {
     "@types/jsdom": "^16.2.4",
