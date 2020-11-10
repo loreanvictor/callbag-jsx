@@ -4,7 +4,6 @@ callbags + JSX - VDOM or any other behind the scenes implicit change detection /
 ```tsx
 import { makeRenderer, List } from 'callbag-jsx';
 import { state } from 'callbag-state';
-import { expr } from 'callbag-expr';
 
 const renderer = makeRenderer();
 
@@ -22,7 +21,7 @@ renderer.render(<div>
     <List of={todos} each={todo => <li>{todo.sub('title')}</li>}/>
   </ol>
   <input type='text' _state={next} placeholder='What should be done?'/>
-  <button onclick={add}>Add #{expr($ => $(todos).length + 1)}</button>
+  <button onclick={add}>Add</button>
 </div>).on(document.body);
 ```
 [TRY IT!](https://stackblitz.com/edit/callbag-jsx-todolist)
