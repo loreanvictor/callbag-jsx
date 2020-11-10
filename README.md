@@ -1,7 +1,7 @@
 
 <div align="center"><img src="callbag-jsx-banner.svg" width="320px"/></div>
 
-Callbags + JSX. No virtual DOM, no passive change detection, no compile-time invalidation.
+Callbags + JSX. No virtual DOM, compile-time invalidation, or other _magic tricks_.
 
 ```bash
 npm i callbag-jsx
