@@ -68,9 +68,9 @@ renderer.render(<div>
 
 <br>
 
-🔮 **Predictable**: There are no _peculiar hooks rules_, _compile time invalidation rules_, etc. A component is just a function that is called exactly once to render some part of the UI. You just need to know JS(X) to fully understand what happens.
+🔮 **Predictability**: There are no _peculiar hooks rules_, _compile time invalidation rules_, etc. A component is just a function that is called exactly once to render some part of the UI. You just need to know JS(X) to fully understand what happens.
 
 <br>
 
-🛠️ **Versatile**: Because of its simplicity, `callbag-jsx` is highly interoperable and robust. You can even manually modify the DOM whenever you need to (for example for obtaining maximum possible performance).
+🛠️ **Versatility**: Because of its simplicity, `callbag-jsx` is highly interoperable and robust. You can even manually modify the DOM whenever you need to (for example for obtaining maximum possible performance).
 
