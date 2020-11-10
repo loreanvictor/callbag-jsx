@@ -1,7 +1,13 @@
 
 <div align="center"><img src="callbag-jsx-banner.svg" width="320px"/></div>
 
-callbags + JSX - VDOM or any other behind the scenes implicit change detection / propagation mechanism.
+Callbags + JSX. No virtual DOM, no passive change detection, no compile-time invalidation.
+
+```bash
+npm i callbag-jsx
+```
+
+👉 Sample TODO app:
 
 ```tsx
 import { makeRenderer, List } from 'callbag-jsx';
@@ -26,17 +32,45 @@ renderer.render(<div>
   <button onclick={add}>Add</button>
 </div>).on(document.body);
 ```
-[TRY IT!](https://stackblitz.com/edit/callbag-jsx-todolist)
+[►TRY IT!](https://stackblitz.com/edit/callbag-jsx-todolist)
 
 <br><br>
 
-## Design Goals
+# Why?
 
-`callbag-jsx` aims to be a UI library that provides comparable convenience of React without taking away any control from the developer.
-Changes propagate explicitly via callbags, and DOM elements are explicitly bound to those callbags. This means no VDOM, no passive
-change detection, no compile-time tracking code insertion, etc.
+🎛️ **Control**: `callbag-jsx` provides convenience of React without taking control away.
 
-This also means that `callbag-jsx` should only make some stuff easier and seamlessly get out of the way when it cannot help really. This means
-seamless interop with pure DOM API usage (and by extension any other tool / lib).
+```tsx
+import state from 'callbag-state';
+import pipe from 'callbag-pipe';
+import { debounce } from 'callbag-debounce';
+import { makeRenderer } from 'callbag-jsx';
 
-<br><br>
+const renderer = makeRenderer();
+const s = state('');
+
+renderer.render(<div>
+  <input _state={s} type='text' placeholder='Type something ...'/>
+  <br/>
+  { s }
+  <br/>
+  { pipe(s, debounce(200)) }
+</div>).on(document.body);
+```
+[►TRY IT!](https://stackblitz.com/edit/callbag-jsx-debounce)
+
+<br>
+
+⚡ **Performance**: there is no virtual DOM, dirty model checking, etc. `callbag-jsx` just binds callbags to DOM elements. As a result:
+- It is much faster than most popular frameworks
+- Its bundles are much smaller (so faster to ship)
+- No bootstrapping besides your own code, so web-apps are quickly interactive.
+
+<br>
+
+🔮 **Predictable**: There are no _peculiar hooks rules_, _compile time invalidation rules_, etc. A component is just a function that is called exactly once to render some part of the UI. You just need to know JS(X) to fully understand what happens.
+
+<br>
+
+🛠️ **Versatile**: Because of its simplicity, `callbag-jsx` is highly interoperable and robust. You can even manually modify the DOM whenever you need to (for example for obtaining maximum possible performance).
+
