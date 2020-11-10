@@ -21,6 +21,7 @@ export function SimpleFor<T>(
   const startMark = renderer.leaf();
   this.setLifeCycleMarker(startMark);
 
+  this.track(props.of);
   this.track(tap((l: T[]) => {
     update(l, index => props.each(mapDistinct(props.of, _l => _l[index]), index), markers, startMark, renderer);
   })(props.of));
