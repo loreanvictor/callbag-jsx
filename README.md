@@ -1,4 +1,6 @@
-# callbag-jsx
+
+<div align="center"><img src="callbag-jsx-banner.svg" width="320px"/></div>
+
 callbags + JSX - VDOM or any other behind the scenes implicit change detection / propagation mechanism.
 
 ```tsx
