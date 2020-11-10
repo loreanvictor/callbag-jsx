@@ -54,7 +54,7 @@ renderer.render(<>
 ```
 [►TRY IT!](https://stackblitz.com/edit/callbag-jsx-debounce)
 
-<br>
+<br><br>
 
 🗳️ **State Management**: `callbag-jsx` is integrated with [`callbag-state`](https://github.com/loreanvictor/callbag-state), so there is no need for external
 state-management tools such as Redux:
@@ -74,7 +74,7 @@ renderer.render(<div>
 ```
 [►TRY IT!](https://stackblitz.com/edit/callbag-jsx-state-management)
 
-<br>
+<br><br>
 
 ⚡ **Performance**: there is no virtual DOM, dirty model checking, etc. `callbag-jsx` just binds callbags to DOM elements. As a result:
 - It is much faster than most popular frameworks.
@@ -86,7 +86,7 @@ renderer.render(<div>
 
 <sub>Benchmarks conducted using [JS framework benchmark](https://github.com/krausest/js-framework-benchmark).</sub>
 
-<br>
+<br><br>
 
 🔮 **Predictability**: There are no [_peculiar hooks rules_](https://reactjs.org/docs/hooks-rules.html), [_compile time invalidation rules_](https://svelte.dev/tutorial/updating-arrays-and-objects), etc. A component is just a function that is called exactly once to render some part of the UI. When you have:
 
@@ -100,7 +100,7 @@ function MyComponent(...) {
 
 Then `x` IS the span element that ends up on screen (and not a proxy for it). You just need to know JS(X) to fully understand what happens.
 
-<br>
+<br><br>
 
 🛠️ **Versatility**: Because of its simplicity, `callbag-jsx` is highly interoperable and robust. You can even manually modify the DOM whenever you need to (for example for obtaining maximum possible performance).
 
