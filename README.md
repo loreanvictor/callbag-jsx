@@ -7,7 +7,7 @@ Callbags + JSX. No virtual DOM, no passive change detection, no compile-time inv
 npm i callbag-jsx
 ```
 
-👉 Sample TODO app:
+👉 Sample Todolist app:
 
 ```tsx
 import { makeRenderer, List } from 'callbag-jsx';
@@ -62,9 +62,12 @@ renderer.render(<div>
 <br>
 
 ⚡ **Performance**: there is no virtual DOM, dirty model checking, etc. `callbag-jsx` just binds callbags to DOM elements. As a result:
-- It is much faster than most popular frameworks
-- Its bundles are much smaller (so faster to ship)
+- It is much faster than most popular frameworks.
+- Its bundles are much smaller (so faster to ship).
 - No bootstrapping besides your own code, so web-apps are quickly interactive.
+![Performance Benchmark](https://i.imgur.com/bXDhojU.png)
+![Bootup Benchmark](https://i.imgur.com/m7NErMe.png)
+<sub>Benchmarks conducted using [JS framework benchmark](https://github.com/krausest/js-framework-benchmark).</sub>
 
 <br>
 
