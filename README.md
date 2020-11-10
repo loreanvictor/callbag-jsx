@@ -42,7 +42,6 @@ renderer.render(<div>
 when and how some part of the DOM tree is updated:
 
 ```tsx
-const renderer = makeRenderer();
 const s = state('');
 
 renderer.render(<>
@@ -61,7 +60,6 @@ renderer.render(<>
 state-management tools such as Redux:
 
 ```tsx
-const renderer = makeRenderer();
 const s = state([0, 0, 0, 0]);
 
 renderer.render(<div>
