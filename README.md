@@ -19,7 +19,7 @@ const add = () => {
 renderer.render(<div>
   <h1>Todos</h1>
   <ol>
-    <List of={todos} each={todo => <li>{expr($ => $(todo).title)}</li>}/>
+    <List of={todos} each={todo => <li>{todo.sub('title')}</li>}/>
   </ol>
   <input type='text' _state={next} placeholder='What should be done?'/>
   <button onclick={add}>Add #{expr($ => $(todos).length + 1)}</button>
