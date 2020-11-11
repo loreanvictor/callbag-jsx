@@ -7,6 +7,8 @@
 [![version](https://img.shields.io/npm/v/callbag-jsx?logo=npm&style=flat-square)](https://www.npmjs.com/package/callbag-jsx)
 </div>
 
+---
+
 Callbags + JSX. No virtual DOM, compile-time invalidation, or other _magic tricks_.
 
 ```bash
