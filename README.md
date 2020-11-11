@@ -1,9 +1,11 @@
 
-<div align="center"><img src="callbag-jsx-banner.svg" width="320px"/></div>
+<div align="center">
+  <img src="callbag-jsx-banner.svg" width="320px"/>
 
 [![tests](https://img.shields.io/github/workflow/status/loreanvictor/callbag-jsx/Test%20and%20Report%20Coverage?label=tests&logo=mocha&logoColor=green&style=flat-square)](https://github.com/loreanvictor/callbag-jsx/actions?query=workflow%3A%22Test+and+Report+Coverage%22)
 [![coverage](https://img.shields.io/codecov/c/github/loreanvictor/callbag-jsx?logo=codecov&style=flat-square)](https://codecov.io/gh/loreanvictor/callbag-jsx)
 [![version](https://img.shields.io/npm/v/callbag-jsx?logo=npm&style=flat-square)](https://www.npmjs.com/package/callbag-jsx)
+</div>
 
 Callbags + JSX. No virtual DOM, compile-time invalidation, or other _magic tricks_.
 
