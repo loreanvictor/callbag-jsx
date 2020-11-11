@@ -1,3 +1,4 @@
+import { DOMWindow } from 'jsdom';
 import { CommonDOMRenderer, LiveDOMRenderer } from 'render-jsx/dom';
 import {
   CallbagAppendPlugin,
@@ -12,8 +13,8 @@ import {
 
 
 
-export function makeRenderer() {
-  return new CommonDOMRenderer().plug(
+export function makeRenderer(dom?: DOMWindow) {
+  return new CommonDOMRenderer(dom).plug(
     () => new CallbagAppendPlugin<Node>(),
     () => new CallbagPropPlugin<Node>(),
     () => new CallbagContentPlugin<Node>(),

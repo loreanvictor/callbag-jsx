@@ -8,11 +8,16 @@
   "scripts": {
     "start": "webpack serve --config ./conf/webpack/dev.conf.ts",
     "watch": "webpack --config ./conf/webpack/dev.conf.ts --watch",
+    "test": "ts-node --files --project conf/typescript/test.json test.ts",
     "build-bundle": "webpack --config ./conf/webpack/prod.conf.ts",
     "build-es5": "tsc -p conf/typescript/es5.json",
     "build-es6": "tsc -p conf/typescript/es6.json",
     "build": "npm run build-es5 && npm run build-es6",
-    "test": "npm test"
+    "cov:inst": "nyc instrument --compact false src .instrumented",
+    "cov:gen": "nyc npm run test",
+    "cov:view": "nyc npm run test && npm run cov:clean",
+    "cov:travis": "nyc npm run test && npx codecov",
+    "cov:clean": "rm -fr ./.nyc_output && rm -fr ./coverage"
   },
   "sideEffects": false,
   "repository": {
@@ -44,7 +49,10 @@
     "render-jsx": "^0.2.4"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.14",
     "@types/jsdom": "^16.2.4",
+    "@types/jsdom-global": "^3.0.2",
+    "@types/mocha": "^8.0.4",
     "@types/node": "^14.11.8",
     "@types/webpack": "^4.41.22",
     "callbag-behavior-subject": "^1.2.0",
@@ -55,7 +63,13 @@
     "callbag-subject": "^2.0.0",
     "callbag-subscribe": "^1.5.1",
     "callbag-tap": "^1.3.0",
+    "chai": "^4.2.0",
     "html-webpack-plugin": "^4.5.0",
+    "jsdom": "^16.4.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
+    "nyc-config-tsx": "^0.1.0",
     "ts-loader": "^8.0.5",
     "ts-node": "^9.0.0",
     "tslib": "^2.0.3",
@@ -65,5 +79,21 @@
     "webpack-cli": "^4.0.0",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.2.0"
+  },
+  "nyc": {
+    "extends": "nyc-config-tsx",
+    "all": true,
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "exclude": [
+      "src/**/test/*",
+      "src/types/*"
+    ],
+    "reporter": [
+      "text",
+      "lcov"
+    ]
   }
 }

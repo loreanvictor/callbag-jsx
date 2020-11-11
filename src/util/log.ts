@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 let start: Date | undefined = undefined;
 
 export function record() {
