@@ -21,9 +21,9 @@ export function content(_content: HTMLElement, toc: HTMLElement, renderer: Rende
           footer={<Footer {...config}/>}
           toc={
             <ToC search={
-                  config.misc?.github ? 
+                  config.misc?.github ?
                   <GithubSearch$
-                    repo={config.misc.github.repo} 
+                    repo={config.misc.github.repo}
                     user={config.misc.github.user}
                     root={config.src.base}
                     pick={config.src.pick.source}
@@ -31,8 +31,9 @@ export function content(_content: HTMLElement, toc: HTMLElement, renderer: Rende
                   /> : false
             }>{toc}</ToC>
           }>
+      <style>{`iframe { background: none; box-shadow: 0 6px 18px rgba(0, 0, 0, .12); }`}</style>
       {_content}
       <ContentNav content={_content}/>
     </Page>
-  )
+  );
 }

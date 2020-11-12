@@ -7,8 +7,8 @@
 > >
 > > <div align="center"><img src="/docs/assets/callbag-jsx-dark-banner.svg" width="300px"/></div>
 
-`callbag-jsx` is a minimalist UI library using JSX for templating and [callbags](https://github.com/callbag/callbag)
-for modeling reactivity. No virtual DOM, no dirty model checking, no compile time invalidations,
+`callbag-jsx` is a minimalist UI library using JSX for layouts and [callbags](https://github.com/callbag/callbag)
+for reactivity. No virtual DOM, no dirty model checking, no compile time invalidations,
 or any other magic tricks.
 
 ```tsx
@@ -18,7 +18,7 @@ const renderer = makeRenderer();
 /*!*/renderer.render(<div>Hellow World!</div>).on(document.body);
 ```
 
-<br>
+---
 
 👉 A more interactive example:
 
@@ -26,7 +26,7 @@ const renderer = makeRenderer();
 const count = state(0);
 
 const add = () => count.set(count.get() + 1);
-const color = expr($ => $(count) % 2 ? 'red' : 'blue');
+const color = expr($ => $(count) % 2 ? 'red' : 'green');
 
 renderer.render(
 /*!*/  <div onclick={add} style={{ color }}>
@@ -35,10 +35,12 @@ renderer.render(
 ).on(document.body);
 ```
 
+<iframe height="64" deferred-src="https://callbag-jsx-demo.stackblitz.io/" />
+
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo
 
-<br>
+---
 
 👉 The famous Todolist app:
 
@@ -61,5 +63,16 @@ renderer.render(<>
 </>).on(document.body);
 ```
 
+<iframe deferred-src="https://callbag-jsx-todolist.stackblitz.io" height="256"/>
+
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-todolist
+
+---
+
+## Quick Links
+
+- [Why?](/why)
+- [How to Install](/how-to-install)
+
+<br><br>
