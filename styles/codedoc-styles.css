@@ -127,7 +127,7 @@ body.dark .darklight-0-0-1>.dark {
 @media (prefers-color-scheme: dark) {
   body:not(.dark-mode-animate) .code-0-0-2 {
     color: #e0e0e0;
-    background: #1D2D50;
+    background: #152543;
     box-shadow: none;
   }
   body:not(.dark-mode-animate) .code-0-0-2 .token.keyword {
@@ -205,7 +205,7 @@ body.dark .darklight-0-0-1>.dark {
 }
   body.dark .code-0-0-2 {
     color: #e0e0e0;
-    background: #1D2D50;
+    background: #152543;
     box-shadow: none;
   }
   body.dark .code-0-0-2 .token.keyword {
@@ -323,7 +323,7 @@ body.dark .darklight-0-0-1>.dark {
   }
 @media (prefers-color-scheme: dark) {
   body:not(.dark-mode-animate) .lineCounter-0-0-3 {
-    background: #1D2D50;
+    background: #152543;
     border-color: rgba(255, 255, 255, .015);
   }
   body:not(.dark-mode-animate) .lineCounter-0-0-3.prim {
@@ -334,7 +334,7 @@ body.dark .darklight-0-0-1>.dark {
   }
 }
   body.dark .lineCounter-0-0-3 {
-    background: #1D2D50;
+    background: #152543;
     border-color: rgba(255, 255, 255, .015);
   }
   body.dark .lineCounter-0-0-3.prim {
@@ -604,7 +604,35 @@ a.button-0-0-6.icon {
   width: 36px;
   height: 36px;
 }
-  .watermark-0-0-7 {
+  .heading-0-0-7 {
+    cursor: pointer;
+    position: relative;
+  }
+  .anchor-0-0-8 {
+    top: 0;
+    left: -32px;
+    bottom: 0;
+    display: flex;
+    opacity: 0;
+    position: absolute;
+    transform: translateX(-8px);
+    transition: opacity .1s, transform .1s;
+    align-items: center;
+    padding-right: 8px;
+  }
+  .heading-0-0-7:hover .anchor-0-0-8 {
+    opacity: 0.5;
+    transform: none;
+  }
+@media screen and (max-width: 1200px) {
+  .anchor-0-0-8 {
+    display: none;
+  }
+}
+  .heading-0-0-7:hover .anchor-0-0-8:hover {
+    opacity: 1;
+  }
+  .watermark-0-0-9 {
     color: #424242;
     cursor: pointer;
     display: inline-block;
@@ -613,41 +641,41 @@ a.button-0-0-6.icon {
     transition: opacity .15s;
     text-decoration: none !important;
   }
-  body.dark-mode-animate .watermark-0-0-7 {
+  body.dark-mode-animate .watermark-0-0-9 {
     transition: opacity .15s, color .3s;
   }
-  .watermark-0-0-7:hover {
+  .watermark-0-0-9:hover {
     opacity: 1;
     text-decoration: none;
   }
 @media (prefers-color-scheme: dark) {
-  body:not(.dark-mode-animate) .watermark-0-0-7 {
+  body:not(.dark-mode-animate) .watermark-0-0-9 {
     color: #eeeeee;
   }
 }
-  body.dark .watermark-0-0-7 {
+  body.dark .watermark-0-0-9 {
     color: #eeeeee;
   }
-  .watermark-0-0-7 svg {
+  .watermark-0-0-9 svg {
     width: 2.8rem;
     display: block;
     margin-top: .25rem;
   }
-  .watermark-0-0-7 svg g {
+  .watermark-0-0-9 svg g {
     fill: #424242;
   }
-  body.dark-mode-animate .watermark-0-0-7 svg g {
+  body.dark-mode-animate .watermark-0-0-9 svg g {
     transition: fill .3s;
   }
-  body.dark .watermark-0-0-7 svg g {
+  body.dark .watermark-0-0-9 svg g {
     fill: #eeeeee;
   }
 @media (prefers-color-scheme: dark) {
-  body:not(.dark-mode-animate) .watermark-0-0-7 svg g {
+  body:not(.dark-mode-animate) .watermark-0-0-9 svg g {
     fill: #eeeeee;
   }
 }
-  .header-0-0-8 {
+  .header-0-0-10 {
     top: 0;
     right: 0;
     padding: 32px;
@@ -655,7 +683,7 @@ a.button-0-0-6.icon {
     position: fixed;
     text-align: right;
   }
-  .footer-0-0-9 {
+  .footer-0-0-11 {
     left: 0;
     right: 0;
     bottom: 0;
@@ -670,67 +698,67 @@ a.button-0-0-6.icon {
     justify-content: center;
     -webkit-backdrop-filter: blur(12px);
   }
-  body.dark-mode-animate .footer-0-0-9 {
+  body.dark-mode-animate .footer-0-0-11 {
     transition: background .3s;
   }
 @media (prefers-color-scheme: dark) {
-  body:not(.dark-mode-animate) .footer-0-0-9 {
+  body:not(.dark-mode-animate) .footer-0-0-11 {
     background: rgba(29, 45, 80, 0.85);
   }
 }
-  body.dark .footer-0-0-9 {
+  body.dark .footer-0-0-11 {
     background: rgba(29, 45, 80, 0.85);
   }
-  .footer-0-0-9 .main {
+  .footer-0-0-11 .main {
     overflow: hidden;
     flex-grow: 1;
     text-align: center;
   }
-  .footer-0-0-9 .left {
+  .footer-0-0-11 .left {
     padding-left: 32px;
   }
-  .footer-0-0-9 .right {
+  .footer-0-0-11 .right {
     padding-right: 32px;
   }
 @media screen and (max-width: 800px) {
-  .footer-0-0-9 .left {
+  .footer-0-0-11 .left {
     padding-left: 16px;
   }
-  .footer-0-0-9 .right {
+  .footer-0-0-11 .right {
     padding-right: 16px;
   }
 }
-  .footer-0-0-9 .main>.inside {
+  .footer-0-0-11 .main>.inside {
     display: inline-flex;
     overflow: auto;
     max-width: 100%;
     align-items: center;
   }
-  .footer-0-0-9 .main>.inside hr {
+  .footer-0-0-11 .main>.inside hr {
     width: 2px;
     border: none;
     height: 16px;
     margin: 16px;
     background: #e0e0e0;
   }
-  .footer-0-0-9 .main>.inside a {
+  .footer-0-0-11 .main>.inside a {
     text-decoration: none;
   }
-  .footer-0-0-9 .main>.inside a:hover {
+  .footer-0-0-11 .main>.inside a:hover {
     text-decoration: underline ;
   }
-  body.dark-mode-animate .footer-0-0-9 .main>.inside hr {
+  body.dark-mode-animate .footer-0-0-11 .main>.inside hr {
     transition: background .3s;
   }
-  body.dark .footer-0-0-9 .main>.inside hr {
-    background: #313131;
+  body.dark .footer-0-0-11 .main>.inside hr {
+    background: #133b5c;
   }
 @media (prefers-color-scheme: dark) {
-  body:not(.dark-mode-animate) .footer-0-0-9 .main>.inside hr {
-    background: #313131;
+  body:not(.dark-mode-animate) .footer-0-0-11 .main>.inside hr {
+    background: #133b5c;
   }
 }
-  .toc-0-0-10 {
+  .toc-0-0-12 {
     top: 0;
     left: 0;
     width: calc(50vw - 464px);
@@ -744,35 +772,35 @@ a.button-0-0-6.icon {
     flex-direction: column;
     padding-bottom: 64px;
   }
-  body.dark-mode-animate .toc-0-0-10 {
+  body.dark-mode-animate .toc-0-0-12 {
     transition: background .3s, border-color .3s;
   }
-  body.dark .toc-0-0-10 {
+  body.dark .toc-0-0-12 {
     background: #1D2D50;
     border-color: #282828;
   }
 @media (prefers-color-scheme: dark) {
-  body:not(.dark-mode-animate) .toc-0-0-10 {
+  body:not(.dark-mode-animate) .toc-0-0-12 {
     background: #1D2D50;
     border-color: #282828;
   }
 }
 @media screen and (max-width: 1200px) {
-  .toc-0-0-10 {
+  .toc-0-0-12 {
     width: 100vw;
     transform: translateX(-110vw);
   }
 }
-  .toc-0-0-10.animated {
+  .toc-0-0-12.animated {
     transition: transform .3s;
   }
-  .toc-0-0-10.active {
+  .toc-0-0-12.active {
     transform: translateX(0);
   }
-  .toc-0-0-10 p {
+  .toc-0-0-12 p {
     margin: 0;
   }
-  .toc-0-0-10 a {
+  .toc-0-0-12 a {
     border: 1px solid transparent;
     display: block;
     padding: 8px;
@@ -782,49 +810,49 @@ a.button-0-0-6.icon {
     border-radius: 3px;
     text-decoration: none;
   }
-  body.dark-mode-animate .toc-0-0-10 a {
+  body.dark-mode-animate .toc-0-0-12 a {
     transition: border-color .3s, background .3s;
   }
-  .toc-0-0-10 a:hover {
+  .toc-0-0-12 a:hover {
     background: #fff9f2;
     text-decoration: none;
   }
-  .toc-0-0-10 a.current {
+  .toc-0-0-12 a.current {
     background: #fff9f2;
     border-color: #e7e7e7;
     margin-right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
-  body.dark .toc-0-0-10 a.current {
+  body.dark .toc-0-0-12 a.current {
     background: hsl(221.20000000000005, 46.8%, 21.8%);
     border-color: #282828;
   }
 @media (prefers-color-scheme: dark) {
-  body:not(.dark-mode-animate) .toc-0-0-10 a.current {
+  body:not(.dark-mode-animate) .toc-0-0-12 a.current {
     background: #1D2D50;
     border-color: #282828;
   }
 }
 @media screen and (max-width: 1200px) {
-  .toc-0-0-10 a.current {
+  .toc-0-0-12 a.current {
     border-right: 1px solid;
     margin-right: -8px;
     border-radius: 3px;
   }
 }
-  body.dark .toc-0-0-10 a:hover {
+  body.dark .toc-0-0-12 a:hover {
     background: hsl(221.20000000000005, 46.8%, 21.8%);
   }
 @media (prefers-color-scheme: dark) {
-  body:not(.dark-mode-animate) .toc-0-0-10 a:hover {
+  body:not(.dark-mode-animate) .toc-0-0-12 a:hover {
     background: hsl(221.20000000000005, 46.8%, 21.8%);
   }
 }
-  body.dark-mode-animate .toc-0-0-10.animated {
+  body.dark-mode-animate .toc-0-0-12.animated {
     transition: transform .3s, background .3s, border-color .3s;
   }
-  .content-0-0-11 {
+  .content-0-0-13 {
     padding: 32px;
     overflow: auto;
     flex-grow: 1;
@@ -832,12 +860,12 @@ a.button-0-0-6.icon {
     padding-right: 0;
   }
 @media screen and (max-width: 1200px) {
-  .content-0-0-11 {
+  .content-0-0-13 {
     margin-right: 0;
     padding-right: 32px;
   }
 }
-  .contentnav-0-0-13 {
+  .contentnav-0-0-15 {
     right: 0;
     width: calc(50vw - 496px);
     bottom: 96px;
@@ -851,56 +879,56 @@ a.button-0-0-6.icon {
     scroll-behavior: initial;
   }
 @media screen and (max-width: 1200px) {
-  .contentnav-0-0-13 {
+  .contentnav-0-0-15 {
     display: none;
   }
 }
-  .contentnav-0-0-13 a {
+  .contentnav-0-0-15 a {
     color: #424242;
     display: block;
     opacity: 0.2;
     text-decoration: none;
   }
 @media (prefers-color-scheme: dark) {
-  body:not(.dark-mode-animate) .contentnav-0-0-13 {
-    border-color: #313131;
+  body:not(.dark-mode-animate) .contentnav-0-0-15 {
+    border-color: #133b5c;
   }
-  body:not(.dark-mode-animate) .contentnav-0-0-13 a {
+  body:not(.dark-mode-animate) .contentnav-0-0-15 a {
     color: #eeeeee;
   }
-  body:not(.dark-mode-animate) .contentnav-0-0-13 a:hover, body:not(.dark-mode-animate) .contentnav-0-0-13 a.active {
+  body:not(.dark-mode-animate) .contentnav-0-0-15 a:hover, body:not(.dark-mode-animate) .contentnav-0-0-15 a.active {
     color: #fcdab7;
   }
 }
-  body.dark .contentnav-0-0-13 {
-    border-color: #313131;
+  body.dark .contentnav-0-0-15 {
+    border-color: #133b5c;
   }
-  body.dark .contentnav-0-0-13 a {
+  body.dark .contentnav-0-0-15 a {
     color: #eeeeee;
   }
-  body.dark .contentnav-0-0-13 a:hover, body.dark .contentnav-0-0-13 a.active {
+  body.dark .contentnav-0-0-15 a:hover, body.dark .contentnav-0-0-15 a.active {
     color: #fcdab7;
   }
-  body.dark-mode-animate .contentnav-0-0-13 a {
+  body.dark-mode-animate .contentnav-0-0-15 a {
     transition: color .3s, opacity .3s;
   }
-  .contentnav-0-0-13 a:hover, .contentnav-0-0-13 a.active {
+  .contentnav-0-0-15 a:hover, .contentnav-0-0-15 a.active {
     color: #1E5F74;
     opacity: 1;
   }
-  .contentnav-0-0-13 a.h2 {
+  .contentnav-0-0-15 a.h2 {
     margin-left: 12px;
   }
-  .contentnav-0-0-13 a.h3 {
+  .contentnav-0-0-15 a.h3 {
     margin-left: 24px;
   }
-  .contentnav-0-0-13 a.h4 {
+  .contentnav-0-0-15 a.h4 {
     margin-left: 36px;
   }
-  .contentnav-0-0-13 a.h5 {
+  .contentnav-0-0-15 a.h5 {
     margin-left: 48px;
   }
-  .contentnav-0-0-13 a.h6 {
+  .contentnav-0-0-15 a.h6 {
     margin-left: 60px;
   }
 * {
@@ -982,19 +1010,19 @@ body.dark-mode-animate table tr:nth-child(even) {
   transition: background .3s;
 }
 body.dark table td {
-  border-color: #313131;
+  border-color: #133b5c;
 }
 @media (prefers-color-scheme: dark) {
   body:not(.dark-mode-animate) table td {
-    border-color: #313131;
+    border-color: #133b5c;
   }
 }
 body.dark table th {
-  border-color: #4D4D4D;
+  border-color: #345672;
 }
 @media (prefers-color-scheme: dark) {
   body:not(.dark-mode-animate) table th {
-    border-color: #4D4D4D;
+    border-color: #345672;
   }
 }
 body.dark-mode-animate table th, body.dark-mode-animate table td {
@@ -1010,11 +1038,11 @@ body.dark-mode-animate hr {
   transition: border-color .3s;
 }
 body.dark hr {
-  border-color: #313131;
+  border-color: #133b5c;
 }
 @media (prefers-color-scheme: dark) {
   body:not(.dark-mode-animate) hr {
-    border-color: #313131;
+    border-color: #133b5c;
   }
 }
 #-codedoc-toc hr {
