@@ -22,9 +22,11 @@ export const theme = /*#__PURE__*/createTheme({
   quote: {
     dark: {
       background: '#133b5c',
+      border: '#1e5f74'
     },
     light: {
-      background: '#fff9f2',
+      background: '#ffeedd',
+      border: '#fcdab7'
     }
   },
   code: {

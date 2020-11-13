@@ -35,7 +35,7 @@ renderer.render(
 ).on(document.body);
 ```
 
-<iframe height="64" deferred-src="https://callbag-jsx-demo.stackblitz.io/" />
+<iframe height="192" deferred-src="https://callbag-jsx-demo.stackblitz.io/" />
 
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo
@@ -73,6 +73,8 @@ renderer.render(<>
 ## Quick Links
 
 - [Why?](/why)
-- [How to Install](/how-to-install)
+- [Getting Started](/getting-started)
 
 <br><br>
+
+> :ToCPrevNext
