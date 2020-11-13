@@ -72,8 +72,8 @@ renderer.render(<>
 
 ## Quick Links
 
-- [Why?](/why)
 - [Getting Started](/getting-started)
+- [Why Callbag-JSX?](/in-depth/why)
 
 <br><br>
 

@@ -15,7 +15,12 @@ export const config = /*#__PURE__*/configuration({
   },
   page: {
     title: {
-      base: 'Callbag JSX'
+      extractor: (content) => {
+        const base = 'Callbag JSX';
+        const pt = content.querySelector('h1')?.textContent;
+
+        return pt ? `${base} | ${pt}` : base;
+      }
     },
     favicon: '/favicon.ico'
   },

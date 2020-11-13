@@ -8,7 +8,7 @@
 ## Setup a project
 
 The easiest way for setting up a new `callbag-jsx` project is to use one of the following
-starter templates on GitHub. Open each repo, and follow the instructions on the README.
+starter templates on GitHub. Open the repo of your choice, and follow the instructions on the README.
 
 > :Buttons
 > > :Button label=TypeScript Template, url=https://github.com/loreanvictor/callbag-jsx-starter-ts#readme
@@ -16,6 +16,8 @@ starter templates on GitHub. Open each repo, and follow the instructions on the 
 > > :Button label=JavaScript Template, url=https://github.com/loreanvictor/callbag-jsx-starter-js#readme
 
 <br>
+
+👉 Read [the installation guide](/install) for other methods of installing `callbag-jsx`.
 
 ---
 
@@ -32,7 +34,7 @@ const renderer = makeRenderer();
 renderer.render(<div>Hellow World!</div>).on(document.body);
 ```
 
-Here is what happens:
+👉 Here is what happens:
 1. We create a renderer object to render the UI.
 1. We tell the renderer to render a `<div/>` element on `document.body`.
 
@@ -60,7 +62,7 @@ renderer.render(
 ).on(document.body);
 ```
 
-JSX expressions create HTML elements, so you can for example store them in variables:
+👉 JSX expressions create HTML elements, so you can for example store them in variables:
 
 ```tsx
 /*!*/const x = <div>Hellow {name}!</div>;
@@ -68,7 +70,11 @@ renderer.render(x).on(document.body);
 ```
 
 > :Buttons
-> > :Button label=Learn More, url=/docs/jsx
+> > :Button label=Learn More, url=/jsx
+
+<br>
+
+> [info](:Icon (align=-6px)) You **MUST** have a renderer named `renderer` in any scope with JSX.
 
 <br>
 
@@ -79,7 +85,7 @@ renderer.render(x).on(document.body);
 ## Dynamic Content
 
 [Callbags](https://github.com/callbag/callbag) are models for _stuff that change_.
-When you embed them within your JSX (or set them as attributes), 
+When you embed them within your JSX, 
 the resulting DOM will also change when the embeded callbags change:
 
 ```tsx
@@ -97,7 +103,18 @@ setInterval(() => count.set(count.get() + 1), 1000);
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-timer
 >
-> > :Button label=Learn More, url=/docs/content-and-attributes
+> > :Button label=Learn More, url=/dom/content
+
+<br>
+
+👉 You can similarly bind attributes of DOM elements to callbags:
+
+```tsx
+<div title={count}>Hover to see how many seconds you've been here.</div>
+```
+
+> :Buttons
+> > :Button label=Learn More, url=/dom/attributes
 
 <br>
 
@@ -123,7 +140,7 @@ renderer.render(
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-clicks?file=index.tsx
 >
-> > :Button label=Learn More, url=/docs/events
+> > :Button label=Learn More, url=/dom/events
 
 <br>
 
@@ -148,7 +165,7 @@ renderer.render(<>
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-input?file=index.tsx
 >
-> > :Button label=Learn More, url=/docs/inputs
+> > :Button label=Learn More, url=/dom/inputs
 
 <br>
 
@@ -177,7 +194,7 @@ renderer.render(<>
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-input1?file=index.tsx
 >
-> > :Button label=Learn More, url=/docs/expressions
+> > :Button label=Learn More, url=/reactivity/expressions
 
 <br>
 
@@ -207,17 +224,19 @@ renderer.render(
 
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo
+>
+> > :Button label=Learn More, url=/dom/styles
 
 <br>
 
-Similarly, you can use callbags to dynamically change classes of a particular element.
+👉 Similarly, you can use callbags to dynamically change classes of a particular element.
 
 ```tsx
 <div class={{ odd: expr($ => $(i) % 2 === 0) }}/>
 ```
 
 > :Buttons
-> > :Button label=Learn More, url=/docs/styles-and-classes
+> > :Button label=Learn More, url=/dom/classes
 
 <br>
 
@@ -225,9 +244,40 @@ Similarly, you can use callbags to dynamically change classes of a particular el
 
 <br>
 
-## Dynamic Lists
+## Conditional DOM
 
-You can use `List` component to create dynamic lists:
+`<Conditional/>` component enables creating elements that appear conditionally:
+
+```tsx
+import { Conditional } from 'callbag-jsx';
+
+const show = state(true);
+
+renderer.render(<>
+  <input type='checkbox' _state={show}/> Show stuff
+/*!*/  <Conditional if={show}
+/*!*/    then={() => <div>🦄🪕Stuff Are Shown ... 🪕🦄</div>}
+/*!*/    else={() => <div>Not showing stuff</div>}
+/*!*/  />
+</>).on(document.body);
+```
+
+<iframe height="192" deferred-src="https://callbag-jsx-demo-conditional.stackblitz.io/" />
+
+> :Buttons
+> > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-conditional
+>
+> > :Button label=Learn More, url=/dom/conditionals
+
+<br>
+
+---
+
+<br>
+
+## Dynamic Lists (Loops)
+
+You can use `<List/>` component to create dynamic lists:
 
 ```tsx
 import { List } from 'callbag-jsx';
@@ -250,7 +300,11 @@ renderer.render(<>
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-list
 >
-> > :Button label=Learn More, url=/docs/lists
+> > :Button label=Learn More, url=/dom/lists
+
+<br>
+
+> [info](:Icon (align=-6px)) If your callbag is not a state, use `<For/>` instead of `<List/>`.
 
 <br>
 
@@ -287,11 +341,11 @@ renderer.render(
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-components
 >
-> > :Button label=Learn More, url=/docs/components
+> > :Button label=Learn More, url=/components/overview
 
 <br>
 
-> [info](:Icon (align=-6px)) The second argument of a component **MUST** be called `renderer`.
+> [info](:Icon (align=-6px)) Components **MUST** have a second argument called `renderer`.
 
 <br><br>
 
