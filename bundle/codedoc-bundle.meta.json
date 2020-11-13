@@ -83,6 +83,11 @@
       "hash": "OuqwxkjzynKS9GJXUE0Wsw=="
     },
     {
+      "name": "CollapseControl",
+      "filename": "/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/collapse/collapse-control.js",
+      "hash": "xE4ZDlY4h9tPCSDLepP59w=="
+    },
+    {
       "name": "GithubSearch",
       "filename": "/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/misc/github/search.js",
       "hash": "eH2KULtr47RPdqakkQxTMQ=="

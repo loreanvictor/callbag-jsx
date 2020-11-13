@@ -15,6 +15,7 @@ import { postNavSearch } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedo
 import { copyLineLinks } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/code/line-links/copy-line-link.js';copyLineLinks();
 import { gatherFootnotes } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/footnote/gather-footnotes.js';gatherFootnotes();
 import { ToCPrevNext } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/page/toc/prevnext/index.js';
+import { CollapseControl } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/collapse/collapse-control.js';
 import { GithubSearch } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/misc/github/search.js';
 import { ToCToggle } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/page/toc/toggle/index.js';
 import { DarkModeSwitch } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/darkmode/index.js';
@@ -22,6 +23,7 @@ import { ConfigTransport } from '/home/runner/work/callbag-jsx/callbag-jsx/.code
 
 const components = {
   'OuqwxkjzynKS9GJXUE0Wsw==': ToCPrevNext,
+  'xE4ZDlY4h9tPCSDLepP59w==': CollapseControl,
   'eH2KULtr47RPdqakkQxTMQ==': GithubSearch,
   'Yh3xsnn5qnOWnIFn3RThGA==': ToCToggle,
   'AN8jSP7SNmb2s6oXj4D6+Q==': DarkModeSwitch,
