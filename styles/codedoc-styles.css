@@ -992,7 +992,7 @@ table td {
   border-bottom: 1px solid #e0e0e0;
 }
 table tr:nth-child(even) {
-  background: #fff9f2;
+  background: #ffeedd;
   border-radius: 3px;
 }
 table tr:last-child > td {
@@ -1054,7 +1054,7 @@ blockquote {
   margin: 0;
   padding: 16px 40px;
   position: relative;
-  background: #fff9f2;
+  background: #ffeedd;
   border-radius: 3px;
 }
 body.dark-mode-animate blockquote {
@@ -1068,7 +1068,7 @@ blockquote:after {
   content: '';
   display: block;
   position: absolute;
-  background: radial-gradient(circle at center, #e0e0e0 50%, transparent 52%),transparent;
+  background: radial-gradient(circle at center, #fcdab7 50%, transparent 52%),transparent;
   background-size: 4px 4px;
 }
 body.dark-mode-animate blockquote:after {
@@ -1084,7 +1084,7 @@ body.dark-mode-animate blockquote:after {
     background: #133b5c;
   }
   body:not(.dark-mode-animate) blockquote:after {
-    background: radial-gradient(circle at center, #363636 50%, transparent 52%),transparent;
+    background: radial-gradient(circle at center, #1e5f74 50%, transparent 52%),transparent;
     background-size: 4px 4px;
   }
 }
@@ -1097,7 +1097,7 @@ body.dark blockquote {
   background: #133b5c;
 }
 body.dark blockquote:after {
-  background: radial-gradient(circle at center, #363636 50%, transparent 52%),transparent;
+  background: radial-gradient(circle at center, #1e5f74 50%, transparent 52%),transparent;
   background-size: 4px 4px;
 }
 img {
@@ -1113,7 +1113,7 @@ code {
   color: #616161;
   padding: 4px;
   font-size: .85em;
-  background: #fff9f2;
+  background: #ffeedd;
   border-radius: 3px;
 }
 body.dark-mode-animate code {

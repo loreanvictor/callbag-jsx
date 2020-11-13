@@ -78,6 +78,11 @@
   ],
   "components": [
     {
+      "name": "ToCPrevNext",
+      "filename": "/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/page/toc/prevnext/index.js",
+      "hash": "OuqwxkjzynKS9GJXUE0Wsw=="
+    },
+    {
       "name": "GithubSearch",
       "filename": "/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/misc/github/search.js",
       "hash": "eH2KULtr47RPdqakkQxTMQ=="
