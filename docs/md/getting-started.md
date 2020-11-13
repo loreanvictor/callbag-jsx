@@ -1,0 +1,298 @@
+<div align="center">
+  <img src="/docs/assets/callbag-jsx.svg" width="128px"/>
+  <h1>Getting Started</h1>
+</div>
+
+<br>
+
+## Setup a project
+
+The easiest way for setting up a new `callbag-jsx` project is to use one of the following
+starter templates on GitHub. Open each repo, and follow the instructions on the README.
+
+> :Buttons
+> > :Button label=TypeScript Template, url=https://github.com/loreanvictor/callbag-jsx-starter-ts#readme
+>
+> > :Button label=JavaScript Template, url=https://github.com/loreanvictor/callbag-jsx-starter-js#readme
+
+<br>
+
+---
+
+<br>
+
+## Hellow World!
+
+A simple _Hellow World!_ app looks like this:
+
+```tsx
+import { makeRenderer } from 'callbag-jsx';
+
+const renderer = makeRenderer();
+renderer.render(<div>Hellow World!</div>).on(document.body);
+```
+
+Here is what happens:
+1. We create a renderer object to render the UI.
+1. We tell the renderer to render a `<div/>` element on `document.body`.
+
+<br>
+
+> [info](:Icon (align=-6px)) **ALWAYS** name your renderer object `renderer`.
+
+<br>
+
+---
+
+<br>
+
+## JSX
+
+In the _Hellow World!_ exmaple above, we created a `<div/>` element inside the JavaScript.
+This is because we are using an extension of JavaScript called JSX, which allows us to
+have JavaScript variables, expressions, etc inside our layout code seamlessly:
+
+```tsx
+const name = 'Jack';
+
+renderer.render(
+/*!*/  <div>Hellow {name}!</div>
+).on(document.body);
+```
+
+JSX expressions create HTML elements, so you can for example store them in variables:
+
+```tsx
+/*!*/const x = <div>Hellow {name}!</div>;
+renderer.render(x).on(document.body);
+```
+
+> :Buttons
+> > :Button label=Learn More, url=/docs/jsx
+
+<br>
+
+---
+
+<br>
+
+## Dynamic Content
+
+[Callbags](https://github.com/callbag/callbag) are models for _stuff that change_.
+When you embed them within your JSX (or set them as attributes), 
+the resulting DOM will also change when the embeded callbags change:
+
+```tsx
+import state from 'callbag-state';
+
+const count = state(0);
+renderer.render(
+/*!*/  <div>You have been here {count} seconds!</div>
+).on(document.body);
+
+setInterval(() => count.set(count.get() + 1), 1000);
+```
+<iframe deferred-src="https://callbag-jsx-demo-timer.stackblitz.io" height="192"/>
+
+> :Buttons
+> > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-timer
+>
+> > :Button label=Learn More, url=/docs/content-and-attributes
+
+<br>
+
+---
+
+<br>
+
+## DOM Events
+
+You can capture DOM events basically the same as you would in HTML:
+
+```tsx
+const count = state(0);
+
+renderer.render(
+/*!*/  <div onclick={() => count.set(count.get() + 1)}>
+/*!*/    You have clicked this {count} times!
+/*!*/  </div>
+).on(document.body);
+```
+<iframe deferred-src="https://callbag-jsx-demo-clicks.stackblitz.io" height="192"/>
+
+> :Buttons
+> > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-clicks?file=index.tsx
+>
+> > :Button label=Learn More, url=/docs/events
+
+<br>
+
+---
+
+<br>
+
+## User Input
+
+You can fetch user input using `_state` attribute:
+
+```tsx
+const input = state('');
+
+renderer.render(<>
+/*!*/  <input _state={input} type='text' placeholder='type something ...'/>
+/*!*/  <div>You typed: {input}</div>
+</>).on(document.body);
+```
+<iframe deferred-src="https://callbag-jsx-demo-input.stackblitz.io" height="192"/>
+
+> :Buttons
+> > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-input?file=index.tsx
+>
+> > :Button label=Learn More, url=/docs/inputs
+
+<br>
+
+---
+
+<br>
+
+## Dynamic Expressions
+
+You can use [`expr`](https://github.com/loreanvictor/callbag-expr) 
+to easily create callbags based on expressions from other callbags:
+
+```tsx
+import expr from 'callbag-expr';
+
+const input = state('');
+const length = expr($ => $(input).length);
+
+renderer.render(<>
+/*!*/  <input _state={input} type='text' placeholder='type something ...'/>
+/*!*/  <div>You typed {length} characters.</div>
+</>).on(document.body);
+```
+<iframe deferred-src="https://callbag-jsx-demo-input1.stackblitz.io" height="192"/>
+
+> :Buttons
+> > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-input1?file=index.tsx
+>
+> > :Button label=Learn More, url=/docs/expressions
+
+<br>
+
+---
+
+<br>
+
+## Dynamic Styles & Classes
+
+Alongside dynamic content and attribute, you can specifically set dynamic styles
+for your element by providing a _style map_ with some of its values being callbags:
+
+```tsx
+const count = state(0);
+
+const add = () => count.set(count.get() + 1);
+const color = expr($ => $(count) % 2 ? 'red' : 'green');
+
+renderer.render(
+/*!*/  <div onclick={add} style={{ color }}>
+/*!*/    You have clicked {count} times!
+/*!*/  </div>
+).on(document.body);
+```
+
+<iframe height="192" deferred-src="https://callbag-jsx-demo.stackblitz.io/" />
+
+> :Buttons
+> > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo
+
+<br>
+
+Similarly, you can use callbags to dynamically change classes of a particular element.
+
+```tsx
+<div class={{ odd: expr($ => $(i) % 2 === 0) }}/>
+```
+
+> :Buttons
+> > :Button label=Learn More, url=/docs/styles-and-classes
+
+<br>
+
+---
+
+<br>
+
+## Dynamic Lists
+
+You can use `List` component to create dynamic lists:
+
+```tsx
+import { List } from 'callbag-jsx';
+
+const records = state([]);
+const add = () => records.set(records.get().concat(new Date()));
+const clear = () => records.set([]);
+
+renderer.render(<>
+/*!*/  <button onclick={add}>Add</button>
+/*!*/  <button onclick={clear}>Clear</button>
+/*!*/  <ul>
+/*!*/    <List of={records} each={record => <li>{record}</li>}/>
+/*!*/  </ul>
+</>).on(document.body);
+```
+
+<iframe height="256" deferred-src="https://callbag-jsx-demo-list.stackblitz.io/" />
+
+> :Buttons
+> > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-list
+>
+> > :Button label=Learn More, url=/docs/lists
+
+<br>
+
+---
+
+<br>
+
+## Components
+
+In `callbag-jsx`, components are functions that are used to create similar parts of the UI:
+
+```tsx
+const records = state([]);
+const add = () => records.set(records.get().concat(new Date()));
+const clear = () => records.set([]);
+
+/*!*/function Record({ record }, renderer) {
+/*!*/  const remove = () => records.set(records.get().filter(r => r !== record.get()));
+/*!*/
+/*!*/  return <div>{ record } <button onclick={remove}>X</button></div>
+/*!*/}
+
+renderer.render(
+  <>
+    <button onclick={add}>Add</button>
+    <button onclick={clear}>Clear</button>
+    <List of={records} each={record => <Record record={record}/>}/>
+  </>
+).on(document.body);
+```
+
+<iframe height="256" deferred-src="https://callbag-jsx-demo-components.stackblitz.io/" />
+
+> :Buttons
+> > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-components
+>
+> > :Button label=Learn More, url=/docs/components
+
+<br>
+
+> [info](:Icon (align=-6px)) The second argument of a component **MUST** be called `renderer`.
+
+<br><br>
+
+> :ToCPrevNext

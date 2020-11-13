@@ -1,14 +1,9 @@
-<div align="center"><img src="/docs/assets/callbag-jsx.svg" width="128px"/></div>
+<div align="center">
+  <img src="/docs/assets/callbag-jsx.svg" width="128px"/>
+  <h1>Why Callbag-JSX?</h1>
+</div>
 
 <br>
-
-> :MetaOverride target=title
->
-> Why
-
-> There are so many UI frameworks out there. Why should I use `callbag-jsx`?
-
-<br><br>
 
 ## [tune](:Icon) Control
 
