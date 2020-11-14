@@ -20,6 +20,7 @@ import { GithubSearch } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc
 import { ToCToggle } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/page/toc/toggle/index.js';
 import { DarkModeSwitch } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/darkmode/index.js';
 import { ConfigTransport } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/transport/config.js';
+import { TabSelector } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/tabs/selector.js';
 
 const components = {
   'OuqwxkjzynKS9GJXUE0Wsw==': ToCPrevNext,
@@ -27,7 +28,8 @@ const components = {
   'eH2KULtr47RPdqakkQxTMQ==': GithubSearch,
   'Yh3xsnn5qnOWnIFn3RThGA==': ToCToggle,
   'AN8jSP7SNmb2s6oXj4D6+Q==': DarkModeSwitch,
-  'PeVrfKaRDy+cSDOSRKBsUQ==': ConfigTransport
+  'PeVrfKaRDy+cSDOSRKBsUQ==': ConfigTransport,
+  'BRWnXArVL7snbLVByshhlg==': TabSelector
 };
 
 const renderer = getRenderer();
