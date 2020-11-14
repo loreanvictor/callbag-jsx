@@ -18,6 +18,7 @@
 > [Inputs](/dom/inputs)
 > [Conditionals](/dom/conditionals)
 > [Lists](/dom/lists)
+> [Renderer](/dom/renderer)
 
 ---
 

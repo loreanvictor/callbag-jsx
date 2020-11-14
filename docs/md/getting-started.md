@@ -50,7 +50,7 @@ renderer.render(<div>Hellow World!</div>).on(document.body);
 
 ## JSX
 
-In the _Hellow World!_ exmaple above, we created a `<div/>` element inside the JavaScript.
+In the _Hellow World!_ exmaple above, we created a `<div/>` element inside JavaScript.
 This is because we are using an extension of JavaScript called JSX, which allows us to
 have JavaScript variables, expressions, etc inside our layout code seamlessly:
 
@@ -124,7 +124,7 @@ setInterval(() => count.set(count.get() + 1), 1000);
 
 ## DOM Events
 
-You can capture DOM events basically the same as you would in HTML:
+You can capture DOM events by providing an event listener function:
 
 ```tsx
 const count = state(0);
@@ -346,6 +346,14 @@ renderer.render(
 <br>
 
 > [info](:Icon (align=-6px)) Components **MUST** have a second argument called `renderer`.
+
+<br><br>
+
+## Quick Links
+
+- [The DOM Renderer](/dom/renderer)
+- [Callbags](/reactivity/callbags)
+- [Components Overview](/components/overview)
 
 <br><br>
 

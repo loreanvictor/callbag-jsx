@@ -100,7 +100,7 @@ Due to its inherent simplicity, `callbag-jsx` is [pretty light-weight (~7kb runt
 
 ## [developer_board](:Icon) Versatility
 
-Again, due to its simplicity, `callbag-jsx` is highly inter-operable and robust. You can use it alongside other
+Also due to its simplicity, `callbag-jsx` is highly inter-operable and robust. You can use it alongside other
 frameworks and tools, in other environments (for example in the backend), etc. You can even manually modify
 the DOM whenever you need to, for example if you need to optimize some particular section of your app for maximum performance.
 

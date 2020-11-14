@@ -1,6 +1,8 @@
 
-import { configuration } from '@codedoc/core';
+import { configuration, DefaultMarkdownCustomInlineComponents } from '@codedoc/core';
+import { Button } from '@codedoc/core/components';
 
+import { Table } from './components/table';
 import { theme } from './theme';
 
 
@@ -23,6 +25,13 @@ export const config = /*#__PURE__*/configuration({
       }
     },
     favicon: '/favicon.ico'
+  },
+  markdown: {
+    Table,
+    customInlineComponents: {
+      ...DefaultMarkdownCustomInlineComponents,
+      Button
+    }
   },
   misc: {
     github: {
