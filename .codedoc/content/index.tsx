@@ -33,6 +33,7 @@ export function content(_content: HTMLElement, toc: HTMLElement, renderer: Rende
           }>
       <style>{`iframe { background: none; box-shadow: 0 6px 18px rgba(0, 0, 0, .12); }`}</style>
       <style>{`small { opacity: .5 }`}</style>
+      <style>{`h1 img, h2 img, h3 img, h4 img { width: 2rem; vertical-align: -6px; }`}</style>
       {_content}
       <ContentNav content={_content}/>
     </Page>

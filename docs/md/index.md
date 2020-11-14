@@ -74,6 +74,7 @@ renderer.render(<>
 
 - [Getting Started](/getting-started)
 - [Why Callbag-JSX?](/in-depth/why)
+- [Comparison with Other Frameworks](/in-depth/compare)
 
 <br><br>
 
