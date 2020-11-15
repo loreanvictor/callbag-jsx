@@ -140,13 +140,24 @@ and imposes much stricter structure than `callbag-jsx`.
 ## ![](https://vuejs.org/images/logo.png) Vue.js
 
 Vue.js and `callbag-jsx` share some notions in reactive state management, specifically with computed
-properties and reactive expressions. Subsequently, though `callbag-jsx` is faster and smaller than Vue.js, 
-the difference is much less pronounced than in Angular or React's cases.
+properties and reactive expressions. Vue.js is also built around robustness, simplicity and interoperability
+compared to React and Angular, and also tends to track changes much more precisely
+than those frameworks.
 
-As a result, I believe the choice between the two mostly boils down to preference (I mean beyond the fact
-that `callbag-jsx` is a new-comer without an ecosystem yet). I am personally a fan
-of Everything-in-JavaScript (one language, one import system, etc.), so I prefer using JSX over Vue's
-segmented style and custom template language and directives.
+The end result is that though `callbag-jsx` is still faster, smaller and more robust than Vue.js, the
+difference, specifically in terms of performance, is less pronounced compared to Angular or React.
+
+<br>
+
+👉 Vue.js has a strict separation of HTML, CSS and JavaScript, while `callbag-jsx` is JSX based
+and generally more aligned towards _Everything-in-JS_ style. Vue.js also imposes more structure on
+the app where as `callbag-jsx` imposes none.
+
+<br>
+
+👉 `callbag-jsx` is more interoperable / customizable / robust. It does not use virtual DOM so
+it is more robust in face of manual / external modifications to DOM, and its reactivity system
+is an independent specification (i.e. callbags).
 
 
 <br><br>
