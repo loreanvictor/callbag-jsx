@@ -10,13 +10,12 @@
 
 ---
 
-Callbags + JSX. No virtual DOM, compile-time invalidation, or other _magic tricks_.
+Callbags + JSX. No virtual DOM, compile-time invalidation, or other _magic tricks_. \
+👉 [Read the Docs](https://loreanvictor.github.io/callbag-jsx)
 
-```bash
-npm i callbag-jsx
-```
+<br>
 
-👉 Sample Todolist app:
+Sample Todolist app:
 
 ```tsx
 import { makeRenderer, List } from 'callbag-jsx';
@@ -45,71 +44,97 @@ renderer.render(<div>
 
 <br><br>
 
-# Why?
+## Why?
 
-🎛️ **Control**: `callbag-jsx` provides convenience of React without taking control away. You can seamlessly control exactly
-when and how some part of the DOM tree is updated:
+👉 [Long Answer Here](https://loreanvictor.github.io/callbag-jsx/in-depth/why)
 
-```tsx
-const s = state('');
+Main purpose of `callbag-jsx` is to provide full control over DOM while being as convenient as tools like React.
+In other words, unlike other frameworks and tools, `callbag-jsx` **DOES NOT** infer when and how to update the DOM,
+it gives you the tools to conveniently outline that.
 
-renderer.render(<>
-  <input _state={s} type='text' placeholder='Type something ...'/>
-  <br/>
-  { s }
-  <br/>
-  { pipe(s, debounce(200)) }
-</>).on(document.body);
+As a result:
+- It gives you full control and gets out of your way whenever it cannot help.
+- It is faster than most popular frameworks (it does less)
+- It is smaller than most popular frameworks (it needs less code)
+- It is pretty straight-forward, i.e. it just bind given callbags to DOM elements. So no [weird hooks rules](https://reactjs.org/docs/hooks-rules.html).
+- It is pretty robust, e.g. modify the DOM manually if you need to.
+
+👉 [Comparison with Other Frameworks](https://loreanvictor.github.io/callbag-jsx/in-depth/compare)
+
+<br><br>
+
+## Installation
+
+Easiest way is to use one of these templates:
+- [TypeScript template](https://github.com/loreanvictor/callbag-jsx-starter-ts/generate)
+- [JavaScript template](https://github.com/loreanvictor/callbag-jsx-starter-js/generate)
+
+You can also just install the package:
+```bash
+npm i callbag-jsx
 ```
-[►TRY IT!](https://stackblitz.com/edit/callbag-jsx-debounce)
-
-<br><br>
-
-🗳️ **State Management**: `callbag-jsx` is integrated with [`callbag-state`](https://github.com/loreanvictor/callbag-state), so there is no need for external
-state-management tools such as Redux:
-
-```tsx
-const s = state([0, 0, 0, 0]);
-
-renderer.render(<div>
-  <List of={s} each={i => 
-    <div onclick={() => i.set(i.get() + 1)}>clicked {i} times</div>
-  }/>
-
-  <br/>
-
-  State: {expr($ => $(s).join(', '))}
-</div>).on(document.body);
-```
-[►TRY IT!](https://stackblitz.com/edit/callbag-jsx-state-management)
-
-<br><br>
-
-⚡ **Performance**: there is no virtual DOM, dirty model checking, etc. `callbag-jsx` just binds callbags to DOM elements. As a result:
-- It is much faster than most popular frameworks.
-- Its bundles are much smaller (so faster to ship).
-- No bootstrapping besides your own code, so web-apps are quickly interactive.
-
-| ![Performance Benchmark](https://i.imgur.com/bXDhojU.png) | ![Bootup Benchmark](https://i.imgur.com/m7NErMe.png) |
-| --------------------------------------------------------- | ---------------------------------------------------- |
-
-<sub>Benchmarks conducted using [JS framework benchmark](https://github.com/krausest/js-framework-benchmark).</sub>
-
-<br><br>
-
-🔮 **Predictability**: There are no [_peculiar hooks rules_](https://reactjs.org/docs/hooks-rules.html), [_compile time invalidation rules_](https://svelte.dev/tutorial/updating-arrays-and-objects), etc. A component is just a function that is called exactly once to render some part of the UI. When you have:
-
-```tsx
-function MyComponent(...) {
-  const x = <span/>;
-  // ...
-  return <div>{x}</div>;
-}
+and use the following jsx pragmas in your `.jsx`/`.tsx` files:
+```jsx
+/** @jsx renderer.create */
+/** @jsxFrag renderer.fragment */
 ```
 
-Then `x` IS the span element that ends up on screen (and not a proxy for it). You just need to know JS(X) to fully understand what happens.
+👉 [Read the docs for more info/options](https://loreanvictor.github.io/callbag-jsx/install)
 
 <br><br>
 
-🛠️ **Versatility**: Because of its simplicity, `callbag-jsx` is highly interoperable and robust. You can even manually modify the DOM whenever you need to (for example for obtaining maximum possible performance).
+## Usage
 
+```jsx
+import { makeRenderer } from 'callbag-jsx';
+
+const renderer = makeRenderer();
+renderer.render(<div>Hellow World!</div>).on(document.body);
+```
+```jsx
+import expr from 'callbag-expr';
+import state from 'callbag-state';
+
+const count = state(0);
+
+const add = () => count.set(count.get() + 1);
+const color = expr($ => $(count) % 2 ? 'red' : 'green');
+
+renderer.render(
+  <div onclick={add} style={{ color }}>
+    You have clicked {count} times!
+  </div>
+).on(document.body);
+```
+👉 [Read the Docs](https://loreanvictor.github.io/callbag-jsx)
+
+<br><br>
+
+## Contribution
+
+There are no contribution guidelines or issue templates currently, so just be nice (and also note that this is REALLY early stage). Useful commands for development / testing:
+
+```bash
+git clone https://github.com/loreanvictor/callbag-jsx.git
+```
+```bash
+npm i                   # --> install dependencies
+```
+```bash
+npm start               # --> run `samples/index.tsx` on `localhost:3000`
+```
+```bash
+npm test                # --> run all tests
+```
+```bash
+npm run cov:view        # --> run tests and display the code coverage report
+```
+```bash
+npm i -g @codedoc/cli   # --> install CODEDOC cli (for working on docs)
+```
+```bash
+codedoc install         # --> install CODEDOC dependencies (for working on docs)
+```
+```bash
+codedoc serve           # --> serve docs on `localhost:3000/render-jsx` (from `docs/md/`)
+```
