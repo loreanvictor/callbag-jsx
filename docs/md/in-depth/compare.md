@@ -125,8 +125,8 @@ Imagine Angular, but everything is an observable and async pipe is used by defau
 Drop everything else from the framework, and you get something pretty close to `callbag-jsx`.
 
 Because of this, `callbag-jsx` is faster than Angular with a (much) smaller bundle size,
-in exchange of being more verbose on reactivity (similar to React).
-It is notable that Angular also has mcuh more boilerplate code
+in exchange for being more verbose on reactivity (similar to React).
+It is notable that Angular also has much more boilerplate code
 and imposes much stricter structure than `callbag-jsx`.
 
 <br>
@@ -144,7 +144,7 @@ properties and reactive expressions. Vue.js is also built around robustness, sim
 compared to React and Angular, and also tends to track changes much more precisely
 than those frameworks.
 
-The end result is that though `callbag-jsx` is still faster, smaller and more robust than Vue.js, the
+The end result is that while `callbag-jsx` is still faster, smaller and more robust than Vue.js, the
 difference, specifically in terms of performance, is less pronounced compared to Angular or React.
 
 <br>

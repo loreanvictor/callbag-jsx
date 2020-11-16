@@ -46,7 +46,7 @@
   "homepage": "https://loreanvictor.github.io/callbag-jsx/",
   "dependencies": {
     "callbag": "^1.3.0",
-    "callbag-state": "^0.2.0",
+    "callbag-state": "^0.2.1",
     "callbag-state-keyed": "^0.2.1",
     "render-jsx": "^0.2.4"
   },

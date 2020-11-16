@@ -14,6 +14,8 @@
 >
 > [Content](/dom/content)
 > [Attributes](/dom/attributes)
+> [Classes](/dom/classes)
+> [Styles](/dom/styles)
 > [Events](/dom/events)
 > [Inputs](/dom/inputs)
 > [Conditionals](/dom/conditionals)

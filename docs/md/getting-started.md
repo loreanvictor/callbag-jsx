@@ -84,7 +84,7 @@ renderer.render(x).on(document.body);
 
 ## Dynamic Content
 
-[Callbags](https://github.com/callbag/callbag) are models for _stuff that change_.
+[Callbags](/reactivity/callbags) are models for _stuff that change_.
 When you embed them within your JSX, 
 the resulting DOM will also change when the embeded callbags change:
 
@@ -351,9 +351,10 @@ renderer.render(
 
 ## Quick Links
 
-- [The DOM Renderer](/dom/renderer)
+- [JSX](/jsx)
 - [Callbags](/reactivity/callbags)
 - [Components Overview](/components/overview)
+- [The DOM Renderer](/dom/renderer)
 
 <br><br>
 
