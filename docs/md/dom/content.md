@@ -33,7 +33,7 @@ will be updated when the callbag has new values.
 import interval from 'callbag-interval';
 
 renderer.render(
-  <div>You have been here {interval(1000)} seconds!</div>
+/*!*/  <div>You have been here {interval(1000)} seconds!</div>
 ).on(document.body);
 ```
 <iframe deferred-src="https://callbag-jsx-demo-timer1.stackblitz.io" height="192"/>
@@ -82,7 +82,7 @@ const markdown = expr($ => marked($(input)));
 
 renderer.render(<>
   <textarea _state={input} placeholder='type some markdown ...'/>
-  <div _content={markdown}/>
+/*!*/  <div _content={markdown}/>
 </>).on(document.body);
 ```
 <iframe deferred-src="https://callbag-jsx-demo-marked.stackblitz.io" height="256"/>
