@@ -1,5 +1,5 @@
 import { Source } from 'callbag';
-import { state, isState, SubState, State } from 'callbag-state';
+import { StateLike, SubState, State } from 'callbag-state';
 import { keyed, isKeyedState, KeyedState, KeyFunc, ListChanges, Addition } from 'callbag-state-keyed';
 import { LiveDOMComponentThis, LiveDOMRenderer } from 'render-jsx/dom';
 
@@ -9,7 +9,7 @@ import { init, update } from './util/keyed-collections';
 
 
 interface KeyedListPropsWithKey<T> {
-  of: State<T[]> | KeyedState<T>;
+  of: StateLike<T[]> | KeyedState<T>;
   each: (item: SubState<T[], number>, index: Source<number> & { get(): number | undefined }) => Node;
   key: KeyFunc<T>;
 }
