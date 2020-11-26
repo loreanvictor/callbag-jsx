@@ -1,5 +1,5 @@
 import { Source } from 'callbag';
-import { StateLike, SubState, State } from 'callbag-state';
+import { StateLike, SubState } from 'callbag-state';
 import { keyed, isKeyedState, KeyedState, KeyFunc, ListChanges, Addition } from 'callbag-state-keyed';
 import { LiveDOMComponentThis, LiveDOMRenderer } from 'render-jsx/dom';
 
@@ -37,7 +37,7 @@ export function KeyedList<T>(
   let src = props.of as KeyedState<T>;
   if (!isKeyedState<T[]>(src)) {
     if (!isWithKeys(props)) { throw Error('You must provide a key function to KeyedList component.'); }
-    src = keyed(src as any, props.key!!);
+    src = keyed(src as any as StateLike<T[]>, props.key!!);
   }
 
   this.track(src);

@@ -21,8 +21,8 @@ export function SimpleList<T>(
   this.setLifeCycleMarker(startMark);
 
   this.track(props.of);
-  this.track(tap((l: T[]) => {
-    update(l, index => props.each(props.of.sub(index), index), markers, startMark, renderer);
+  this.track(tap((l: T[] | undefined) => {
+    update(l || [], index => props.each(props.of.sub(index), index), markers, startMark, renderer);
   })(props.of));
 
   return <>{startMark}</>;
