@@ -1,6 +1,6 @@
 {
   "name": "callbag-jsx",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "callbags + JSX: super fast and super thiny interactive web apps",
   "main": "dist/es5/index.js",
   "module": "dist/es6/index.js",
