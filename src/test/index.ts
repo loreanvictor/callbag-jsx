@@ -4,6 +4,7 @@ import { testCallbagAppendSupport } from '../plugins/test/spec/append.spec';
 import { testCallbagClassSupport } from '../plugins/test/spec/class.spec';
 import { testCallbagContentSupport } from '../plugins/test/spec/content.spec';
 import { testCallbagEventHandlerSupport } from '../plugins/test/spec/event-handler.spec';
+import { testCallbagInputValueSupport } from '../plugins/test/spec/input-value.spec';
 import { testCallbagInputStateSupport } from '../plugins/test/spec/input-state.spec';
 import { testCallbagPropSupport } from '../plugins/test/spec/prop.spec';
 import { testCallbagStyleSupport } from '../plugins/test/spec/style.spec';
@@ -29,5 +30,6 @@ describe('callbag-jsx', () => {
     testCallbagStyleSupport((dom, ...plugins) => makeRenderer(dom).plug(...plugins));
     testCallbagEventHandlerSupport((dom, ...plugins) => makeRenderer(dom).plug(...plugins));
     testCallbagInputStateSupport((dom, ...plugins) => makeRenderer(dom).plug(...plugins));
+    testCallbagInputValueSupport((dom, ...plugins) => makeRenderer(dom).plug(...plugins));
   });
 });

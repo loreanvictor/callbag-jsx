@@ -10,6 +10,7 @@ import {
   CallbagPropPlugin,
   CallbagTrackPlugin
 } from './plugins';
+import { CallbagInputValuePlugin } from './plugins/input-value.plugin';
 
 
 
@@ -19,6 +20,7 @@ export function makeRenderer(dom?: DOMWindow) {
     () => new CallbagPropPlugin<Node>(),
     () => new CallbagContentPlugin<Node>(),
     () => new CallbagTrackPlugin<Node>(),
+    // () => new CallbagInputValuePlugin(),
     () => new CallbagInputStatePlugin(),
     () => new CallbagEventHandlerPlugin(),
     () => new CallbagClassPlugin(),
