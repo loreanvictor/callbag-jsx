@@ -8,4 +8,4 @@ const test = (file: string) => mocha.addFile(path.join(root, file));
 
 test('test/index.ts');
 
-mocha.run(n => process.exit(Math.min(n, 1)));
+mocha.run((n: number) => process.exit(Math.min(n, 1)));
