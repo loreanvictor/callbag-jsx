@@ -2,9 +2,9 @@
 /* tslint:disable: no-unused-expression */
 /* tslint:disable: newline-before-return */
 
-const subject = require('callbag-subject');
-
 import subscribe from 'callbag-subscribe';
+import subject from 'callbag-subject';
+import state from 'callbag-state';
 import { should, expect } from 'chai';
 import { DOMWindow, JSDOM } from 'jsdom';
 import { RendererLike } from 'render-jsx';
@@ -83,5 +83,16 @@ export function testCallbagInputStateSupport(
 
     sub(1, 'A'); i.value.should.equal('A');
     sub(1, 'B'); i.value.should.equal('B');
+  });
+
+  it('should set the input value to the initial value of the callbag.', () => {
+    const dom = new JSDOM().window;
+    const renderer = factory(dom);
+    const st = state('Hola');
+
+    const i = <input _state={st} type='text'/>;
+    renderer.render(i).on(dom.document.body);
+
+    i.value.should.equal('Hola');
   });
 }

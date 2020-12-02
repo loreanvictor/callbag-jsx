@@ -1,6 +1,6 @@
 {
   "name": "callbag-jsx",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "callbags + JSX: super fast and super thiny interactive web apps",
   "main": "dist/es5/index.js",
   "module": "dist/es6/index.js",
@@ -69,7 +69,7 @@
     "callbag-map": "^1.1.0",
     "callbag-pipe": "^1.2.0",
     "callbag-share": "^1.2.0",
-    "callbag-subject": "^2.0.0",
+    "callbag-subject": "^2.1.0",
     "callbag-subscribe": "^1.5.1",
     "callbag-tap": "^1.3.0",
     "chai": "^4.2.0",

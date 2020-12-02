@@ -25,8 +25,8 @@ export class CallbagInputStatePlugin
     ) {
       const renderer = this.renderer();
 
-      renderer.setProp(node, '_state', (v: any) => target(1, v));
       renderer.hook(node, makeHook(target, v => setInputValue(node as any, v)));
+      renderer.setProp(node, '_state', (v: any) => target(1, v));
 
       return true;
     }
