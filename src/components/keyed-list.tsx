@@ -5,11 +5,12 @@ import { LiveDOMComponentThis, LiveDOMRenderer } from 'render-jsx/dom';
 
 import { TrackerComponentThis } from '../plugins';
 import { tap } from '../util/tap';
+import { ensureState } from './util/ensure-state';
 import { init, update } from './util/keyed-collections';
 
 
 interface KeyedListPropsWithKey<T> {
-  of: StateLike<T[]> | KeyedState<T>;
+  of: StateLike<T[]> | Source<T[]>;
   each: (item: SubState<T[], number>, index: Source<number> & { get(): number | undefined }) => Node;
   key: KeyFunc<T>;
 }
@@ -34,11 +35,11 @@ export function KeyedList<T>(
   const startMark = renderer.leaf();
   this.setLifeCycleMarker(startMark);
 
-  let src = props.of as KeyedState<T>;
-  if (!isKeyedState<T[]>(src)) {
-    if (!isWithKeys(props)) { throw Error('You must provide a key function to KeyedList component.'); }
-    src = keyed(src as any as StateLike<T[]>, props.key!!);
-  }
+  const src = isKeyedState<T>(props.of) ? props.of : (
+    isWithKeys(props)
+    ? keyed(ensureState(props.of, cb => this.track(cb)), props.key!)
+    : (() => { throw Error('You must provide a key function for KeyedList component.'); })()
+  );
 
   this.track(src);
 
