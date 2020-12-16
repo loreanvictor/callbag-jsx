@@ -14,6 +14,7 @@ import { makeRenderer } from '../index';
 
 describe('callbag-jsx', () => {
   require('../plugins/test');
+  require('../components/test');
 
   describe('makeRenderer()', () => {
     const D = new JSDOM().window;
