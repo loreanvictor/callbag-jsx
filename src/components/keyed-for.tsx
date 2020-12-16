@@ -34,7 +34,8 @@ export function KeyedFor<T>(
         mapDistinct(sub, m => m[key]?.item),
         mapDistinct(sub, m => m[key]?.index),
       ),
-    markers, startMark, renderer);
+      markers, startMark, renderer
+    );
     sub(1, watcher.keymap);
   })(props.of));
 

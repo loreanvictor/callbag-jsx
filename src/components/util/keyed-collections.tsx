@@ -95,8 +95,11 @@ export function update<T>(
 }
 
 
-export function del(i: number, markers: Node[], startMark: Node, renderer: LiveDOMRenderer,
-    shifts: Shift[], temp = false) {
+export function del(
+  i: number, markers: Node[], startMark: Node,
+  renderer: LiveDOMRenderer,
+  shifts: Shift[], temp = false
+) {
   const index = tr(i, shifts);
   const start = markers[index - 1] || startMark;
   const end = markers[index];

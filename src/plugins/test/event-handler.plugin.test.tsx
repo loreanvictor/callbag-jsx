@@ -1,15 +1,12 @@
-/* tslint:disable: no-magic-numbers */
-/* tslint:disable: no-unused-expression */
-/* tslint:disable: newline-before-return */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
-const subject = require('callbag-subject');
-
-import { should, expect } from 'chai';import { JSDOM } from 'jsdom';
+import { should } from 'chai';import { JSDOM } from 'jsdom';
 import { LiveDOMRenderer } from 'render-jsx/dom';
 import { EventHandlerPlugin } from 'render-jsx/dom/plugins';
 import { CallbagEventHandlerPlugin } from '../event-handler.plugin';
 import { testCallbagEventHandlerSupport } from './spec/event-handler.spec';
- should();
+
+should();
 
 describe('CallbagEventHandlerPlugin', () => {
   testCallbagEventHandlerSupport(

@@ -1,11 +1,7 @@
-/* tslint:disable: no-magic-numbers */
-/* tslint:disable: no-unused-expression */
-/* tslint:disable: newline-before-return */
-
 import subscribe from 'callbag-subscribe';
 import subject from 'callbag-subject';
 import state from 'callbag-state';
-import { should, expect } from 'chai';
+import { should } from 'chai';
 import { DOMWindow, JSDOM } from 'jsdom';
 import { RendererLike } from 'render-jsx';
 import { LiveDOMRenderer } from 'render-jsx/dom';

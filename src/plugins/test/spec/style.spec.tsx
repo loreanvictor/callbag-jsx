@@ -1,8 +1,4 @@
-/* tslint:disable: no-magic-numbers */
-/* tslint:disable: no-unused-expression */
-/* tslint:disable: newline-before-return */
-
-import { should, expect } from 'chai'; should();
+import { should } from 'chai'; should();
 import expr from 'callbag-expr';
 import state from 'callbag-state';
 import { DOMWindow, JSDOM } from 'jsdom';

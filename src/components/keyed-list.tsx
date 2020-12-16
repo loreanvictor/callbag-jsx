@@ -1,6 +1,6 @@
 import { Source } from 'callbag';
 import { StateLike, SubState } from 'callbag-state';
-import { keyed, isKeyedState, KeyedState, KeyFunc, ListChanges, Addition } from 'callbag-state-keyed';
+import { keyed, isKeyedState, KeyedState, KeyFunc, ListChanges } from 'callbag-state-keyed';
 import { LiveDOMComponentThis, LiveDOMRenderer } from 'render-jsx/dom';
 
 import { TrackerComponentThis } from '../plugins';
@@ -37,16 +37,16 @@ export function KeyedList<T>(
 
   const src = isKeyedState<T>(props.of) ? props.of : (
     isWithKeys(props)
-    ? keyed(ensureState(props.of, cb => this.track(cb)), props.key!)
-    : (() => { throw Error('You must provide a key function for KeyedList component.'); })()
+      ? keyed(ensureState(props.of, cb => this.track(cb)), props.key!)
+      : (() => { throw Error('You must provide a key function for KeyedList component.'); })()
   );
 
   this.track(src);
 
   this.onBind(() => {
     init(src.get(), src.keyfunc,
-        key => props.each(src.key(key), src.index(key)),
-        markers, startMark, renderer);
+      key => props.each(src.key(key), src.index(key)),
+      markers, startMark, renderer);
   });
 
   this.track(tap((changes: ListChanges<T>) => {

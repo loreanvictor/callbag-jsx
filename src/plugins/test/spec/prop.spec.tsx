@@ -1,7 +1,3 @@
-/* tslint:disable: no-magic-numbers */
-/* tslint:disable: no-unused-expression */
-/* tslint:disable: newline-before-return */
-
 import { should, expect } from 'chai'; should();
 import { state } from 'callbag-state';
 import { LiveRendererLike, RendererLike } from 'render-jsx';

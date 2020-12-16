@@ -1,14 +1,14 @@
-/* tslint:disable: no-magic-numbers */
-/* tslint:disable: no-unused-expression */
-/* tslint:disable: newline-before-return */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable newline-before-return */
 
 import state from 'callbag-state';
-import { should, expect } from 'chai';import { JSDOM } from 'jsdom';
+import { should } from 'chai';import { JSDOM } from 'jsdom';
 import { LiveDOMRenderer } from 'render-jsx/dom';
 import { AppendPlugin, Plugin } from 'render-jsx/plugin';
 import { CallbagAppendPlugin } from '../append.plugin';
 import { testCallbagAppendSupport } from './spec/append.spec';
- should();
+
+should();
 
 describe('CallbagAppendPlugin', () => {
   const dom = new JSDOM().window;

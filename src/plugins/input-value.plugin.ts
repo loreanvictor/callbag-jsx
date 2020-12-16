@@ -13,13 +13,13 @@ export class CallbagInputValuePlugin extends Plugin<Node, LiveDOMRenderer> imple
 
   setProp(node: Node, prop: string, target: any): boolean {
     if (prop === 'value'
-    && (
-      node.nodeName === 'INPUT'
-      || node.nodeName === 'TEXTAREA'
-      || node.nodeName === 'SELECT'
-    )
-    && isCallbag(target)
-  ) {
+      && (
+        node.nodeName === 'INPUT'
+        || node.nodeName === 'TEXTAREA'
+        || node.nodeName === 'SELECT'
+      )
+      && isCallbag(target)
+    ) {
       const renderer = this.renderer();
       renderer.hook(node, makeHook(target, v => setInputValue(node as any, v)));
 

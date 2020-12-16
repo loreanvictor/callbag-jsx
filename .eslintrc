@@ -1,0 +1,37 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [ "@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "quotes": ["warn", "single", {"avoidEscape": true}],
+    "curly": "warn",
+    "no-unused-vars": "off",
+    "no-unused-expressions": "warn",
+    "no-shadow": "warn",
+    "prefer-const": "warn",
+    "eqeqeq": "warn",
+    "prefer-spread": "warn",
+    "prefer-object-spread": "warn",
+    "indent": ["warn", 2],
+    "newline-before-return": "warn",
+    "eol-last": "warn",
+    "semi": "warn",
+    "no-trailing-spaces": "warn",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/adjacent-overload-signatures": "warn",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-empty-interface": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-inferrable-types": "warn",
+    "@typescript-eslint/restrict-plus-operands": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
+    "@typescript-eslint/no-this-alias": "off",
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_|^renderer$" }],
+    "@typescript-eslint/ban-types": "off"
+  }
+}

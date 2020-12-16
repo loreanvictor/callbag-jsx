@@ -19,7 +19,7 @@ describe('callbag-jsx', () => {
     const D = new JSDOM().window;
     const C = (node: Node) => (node as HTMLElement).innerHTML;
     const L = () => D.document.body;
-    const P = (node: Node, prop: string) => (node as HTMLElement).getAttribute(prop)!!;
+    const P = (node: Node, prop: string) => (node as HTMLElement).getAttribute(prop)!;
 
     testCallbagAppendSupport<Node, LiveDOMRenderer>((...plugins) => makeRenderer(D).plug(...plugins), C, L);
     testCallbagContentSupport<Node, LiveDOMRenderer>((...plugins) => makeRenderer(D).plug(...plugins), C, L);

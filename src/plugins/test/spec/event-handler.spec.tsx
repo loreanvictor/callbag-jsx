@@ -1,11 +1,9 @@
-/* tslint:disable: no-magic-numbers */
-/* tslint:disable: no-unused-expression */
-/* tslint:disable: newline-before-return */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
-const subject = require('callbag-subject');
+import subject from 'callbag-subject';
 
 import subscribe from 'callbag-subscribe';
-import { should, expect } from 'chai';
+import { should } from 'chai';
 import { DOMWindow, JSDOM } from 'jsdom';
 import { RendererLike } from 'render-jsx';
 import { LiveDOMRenderer } from 'render-jsx/dom';

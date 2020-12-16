@@ -1,4 +1,4 @@
-import { START, DATA, END, Callbag, Sink, Source } from 'callbag';
+import { START, DATA, END, Callbag } from 'callbag';
 
 export type MsgType = START | DATA | END;
 export type Talkback = (type: END, error?: any) => void;

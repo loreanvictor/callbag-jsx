@@ -33,5 +33,5 @@ export function subject<T>(): Callbag<T, T> {
         sinks.length = 0;
       }
     }
- };
+  };
 }

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { LiveRendererLike, RendererLike } from 'render-jsx';
 import { ref } from 'render-jsx/common';
 import { RefPlugin } from 'render-jsx/common/plugins';

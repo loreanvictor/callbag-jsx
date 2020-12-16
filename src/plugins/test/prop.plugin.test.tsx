@@ -1,9 +1,8 @@
-/* tslint:disable: no-magic-numbers */
-/* tslint:disable: no-unused-expression */
-/* tslint:disable: newline-before-return */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable newline-before-return */
 
 import state from 'callbag-state';
-import { should, expect } from 'chai'; should();
+import { should } from 'chai'; should();
 import { JSDOM } from 'jsdom';
 import { LiveDOMRenderer } from 'render-jsx/dom';
 import { Plugin, PropPlugin } from 'render-jsx/plugin';
@@ -14,7 +13,7 @@ describe('CallbagPropPlugin', () => {
   const dom = new JSDOM().window;
   testCallbagPropSupport<Node, LiveDOMRenderer>(
     (...plugins) => new LiveDOMRenderer(dom, ...plugins, () => new CallbagPropPlugin<Node>()),
-    (node, prop) => (node as HTMLElement).getAttribute(prop)!!,
+    (node, prop) => (node as HTMLElement).getAttribute(prop)!,
     () => dom.document.body,
   );
 
