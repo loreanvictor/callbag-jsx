@@ -13,7 +13,7 @@ export function update<T>(
     for (let index = markers.length; index < l.length; index++) {
       const node = each(index);
       renderer.render(node).on(frag);
-      if (node instanceof DocumentFragment) {
+      if (node.nodeType === node.DOCUMENT_FRAGMENT_NODE) {
         const marker = renderer.leaf();
         renderer.render(marker).on(frag);
         markers.push(marker);

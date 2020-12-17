@@ -6,6 +6,7 @@ const _N = {};
 export function mapDistinct<I, O>(
   src: Source<I>,
   map: (i: I) => O,
+  initial?: I,
 ): Source<O> & { get(): O | undefined } {
   let last: O | typeof _N = _N;
 
@@ -20,6 +21,11 @@ export function mapDistinct<I, O>(
         }
       } else {
         sink(t, d);
+      }
+
+      if (isStart(t) && initial) {
+        const res = map(initial);
+        sink(1, last = _last = res);
       }
     });
     if (last !== _N) { sink(1, last); }

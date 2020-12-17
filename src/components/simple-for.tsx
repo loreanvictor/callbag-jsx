@@ -23,7 +23,17 @@ export function SimpleFor<T>(
 
   this.track(props.of);
   this.track(tap((l: T[]) => {
-    update(l, index => props.each(mapDistinct(props.of, _l => _l[index]), index), markers, startMark, renderer);
+    update(l,
+      index => props.each(
+        mapDistinct(
+          props.of,
+          _l => _l[index],
+          l
+        ),
+        index
+      ),
+      markers, startMark, renderer
+    );
   })(props.of));
 
   return <>{startMark}</>;
