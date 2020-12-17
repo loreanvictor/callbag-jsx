@@ -9,9 +9,13 @@ export function mapDistinct<I, O>(
   initial?: I,
 ): Source<O> & { get(): O | undefined } {
   let last: O | typeof _N = _N;
+  if (initial) {
+    last = map(initial);
+  }
 
   const c = (start: START | DATA | END, sink: any) => {
-    let _last: O | typeof _N = _N;
+    let _last: O | typeof _N = last;
+    /* istanbul ignore next */
     if (!isStart(start)) { return; }
     src(0, (t: START | DATA | END, d?: any) => {
       if (isData(t)) {
@@ -21,11 +25,6 @@ export function mapDistinct<I, O>(
         }
       } else {
         sink(t, d);
-      }
-
-      if (isStart(t) && initial) {
-        const res = map(initial);
-        sink(1, last = _last = res);
       }
     });
     if (last !== _N) { sink(1, last); }
