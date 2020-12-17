@@ -28,7 +28,7 @@ export function init<T>(
     const key = keyfunc(entry);
     const node = each(key);
     renderer.render(node).on(frag);
-    if (node instanceof DocumentFragment) {
+    if (node.nodeType === node.DOCUMENT_FRAGMENT_NODE) {
       const marker = renderer.leaf();
       markers.push(marker);
       renderer.render(marker).on(frag);
