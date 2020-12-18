@@ -30,4 +30,4 @@ export function makeRenderer(dom?: DOMWindow) {
 
 
 export { TrackerComponentThis } from './plugins';
-export { For, List, Conditional } from './components';
+export { For, List, Conditional, Wait } from './components';

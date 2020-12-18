@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { Callbag } from 'callbag';
 
 import { isData, isStart, MsgType } from '../types';

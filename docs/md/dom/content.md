@@ -30,7 +30,7 @@ If your expression is a [callbag](/reactivity/callbags), then the element's cont
 will be updated when the callbag has new values.
 
 ```tsx
-import interval from 'callbag-interval';
+import { interval } from 'callbag-common';
 
 renderer.render(
 /*!*/  <div>You have been here {interval(1000)} seconds!</div>
@@ -104,3 +104,9 @@ renderer.render(<>
 <br><br>
 
 > :ToCPrevNext
+
+<br><br>
+
+<div align="center">
+  <img src="/docs/assets/callbag.svg" width="256px"/>
+</div>

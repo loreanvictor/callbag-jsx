@@ -12,9 +12,10 @@ should();
 describe('List', () => {
   it('should render given array.', () => {
     testRender((renderer, document) => {
-      const s = state(['A', 'B', 'C']);
+      const s = state<string[] | undefined>(undefined);
       renderer.render(<List of={s} each={i => <span>{i}</span>}/>).on(document.body);
 
+      s.set(['A', 'B', 'C']);
       document.body.textContent!.should.equal('ABC');
       s.set(['A', 'C', 'B']);
       document.body.textContent!.should.equal('ACB');
@@ -38,6 +39,8 @@ describe('List', () => {
       document.body.textContent!.should.equal('B0C1D2E3');
       sub(1, ['B', 'F']);
       document.body.textContent!.should.equal('B0F1');
+      sub(1, undefined);
+      document.body.textContent!.should.equal('');
     });
   });
 

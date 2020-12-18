@@ -56,3 +56,9 @@ renderer.render(
 <br><br>
 
 > :ToCPrevNext
+
+<br><br>
+
+<div align="center">
+  <img src="/docs/assets/callbag.svg" width="256px"/>
+</div>

@@ -107,3 +107,9 @@ the DOM whenever you need to, for example if you need to optimize some particula
 <br><br>
 
 > :ToCPrevNext
+
+<br><br>
+
+<div align="center">
+  <img src="/docs/assets/callbag.svg" width="256px"/>
+</div>

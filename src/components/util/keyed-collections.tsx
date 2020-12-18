@@ -44,6 +44,7 @@ export function update<T>(
   changes: ListChanges<T>, keyfunc: KeyFunc<T>,
   each: (key: string | number) => Node,
   markers: Node[], startMark: Node, renderer: LiveDOMRenderer) {
+  /* istanbul ignore next */
   if (!renderer.document.contains(startMark)) {
     return;
   }

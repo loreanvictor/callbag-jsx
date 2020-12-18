@@ -179,7 +179,7 @@ You can use [`expr`](https://github.com/loreanvictor/callbag-expr)
 to easily create callbags based on expressions from other callbags:
 
 ```tsx
-import expr from 'callbag-expr';
+import { expr } from 'callbag-common';
 
 const input = state('');
 const length = expr($ => $(input).length);
@@ -359,3 +359,9 @@ renderer.render(
 <br><br>
 
 > :ToCPrevNext
+
+<br><br>
+
+<div align="center">
+  <img src="/docs/assets/callbag.svg" width="256px"/>
+</div>

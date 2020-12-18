@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { Callbag, DATA, END, Sink, START } from 'callbag';
 import { isEnd, isStart } from '../types';
 

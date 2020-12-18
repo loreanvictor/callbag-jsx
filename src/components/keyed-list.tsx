@@ -36,6 +36,7 @@ export function KeyedList<T>(
   this.setLifeCycleMarker(startMark);
 
   const src = isKeyedState<T>(props.of) ? props.of : (
+    /* istanbul ignore next */
     isWithKeys(props)
       ? keyed(ensureState(props.of, cb => this.track(cb)), props.key!)
       : (() => { throw Error('You must provide a key function for KeyedList component.'); })()
