@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable newline-before-return */
+
 import { should } from 'chai';
 import subject from 'callbag-subject';
 
@@ -81,6 +83,26 @@ describe('Wait', () => {
       r.should.equal(1);
       src(1, 'Even with different values?');
       r.should.equal(1);
+    });
+  });
+
+  it('should invoke the `then` function early while waiting for the promise in concurrent mode.', done => {
+    testRender((renderer, document) => {
+      let called = false;
+      let res: any;
+      const src = new Promise(r => res = r);
+
+      renderer.render(<Wait concurrently for={src}
+        with={() => <>Loading ...</>}
+        then={i => { called = true; return <>{i}</>; }}/>
+      ).on(document.body);
+      document.body.textContent!.should.equal('Loading ...');
+      called.should.be.true;
+      res('Hola hola!');
+      setTimeout(() => {
+        document.body.textContent!.should.equal('Hola hola!');
+        done();
+      }, 1);
     });
   });
 });
