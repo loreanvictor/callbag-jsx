@@ -20,6 +20,7 @@
 > [Inputs](/dom/inputs)
 > [Conditionals](/dom/conditionals)
 > [Lists](/dom/lists)
+> [Wait](/dom/wait)
 > [Renderer](/dom/renderer)
 
 ---

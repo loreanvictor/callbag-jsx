@@ -304,9 +304,30 @@ renderer.render(<>
 
 <br>
 
-> [info](:Icon (align=-6px)) If your callbag is not a state, use `<For/>` instead of `<List/>`.
+---
 
-<br>
+## Data Fetching
+
+You can use `<Wait/>` component for rendering based on data that is fetched asynchronously. 
+
+```tsx
+import { Wait } from 'callbag-jsx';
+
+renderer.render(
+  <Wait
+    for={fetch('https://pokeapi.co/api/v2/pokemon/charizard').then(res => res.json())}
+    with={() => <>Loading ...</>}
+    then={pokemon => <h1>{pokemon.name}</h1>}
+  />
+).on(document.body);
+```
+
+<iframe height="256" deferred-src="https://callbag-jsx-demo-wait.stackblitz.io/" />
+
+> :Buttons
+> > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-wait
+>
+> > :Button label=Learn More, url=/dom/wait
 
 ---
 
