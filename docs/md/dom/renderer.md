@@ -110,7 +110,7 @@ object to all components:
 > :Tabs
 > > :Tab title=Usage
 > > ```tsx | greetings.tsx
-> > function Greetings({ to }, renderer) {
+> > export function Greetings({ to }, renderer) {
 > > /*!*/  return <h1>{this.config.greeting} {to}!</h1>;
 > > }
 > > ```
@@ -152,13 +152,98 @@ object to all components:
 > > }
 > > ```
 
-
 <iframe height="256" deferred-src="https://callbag-jsx-demo-plugin-config.stackblitz.io/" />
 
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-plugin-config
 >
 > > :Button label=Learn More, url=https://loreanvictor.github.io/render-jsx/docs/usage/custom-renderers/custom-component-processors
+
+<br>
+
+---
+
+<br>
+
+## Example: Class-based Components
+
+In this example we create a plugin that enables use of class-based components:
+
+> :Tabs
+> > :Tab title=Usage
+> > ```tsx | greetings.tsx
+> > /*!*/import { Component } from './class-comp.plugin';
+> > 
+> > /*!*/export class Greetings extends Component<Node> {
+> >   render(renderer) {
+> >     return <h1>Hellow {this.props.to}</h1>
+> >   }
+> > }
+> > ```
+> > ```tsx | index.tsx
+> > import { makeRenderer } from 'callbag-jsx';
+> > /*!*/import { ClassComponentPlugin } from './class-comp.plugin'; // @see tab:Plugin Code
+> > import { Greetings } from './greetings';
+> > 
+> > /*!*/const renderer = makeRenderer()
+> > /*!*/  .plug(() => new ClassComponentPlugin<Node>());
+> > 
+> > renderer.render(
+> >   <>
+> >     <Greetings to='World'/>
+> >     <p>Today is {new Date()}</p>
+> >   </>
+> > ).on(document.body);
+> > ```
+>
+> > :Tab title=Plugin Code
+> > ```ts | class-comp.plugin.ts
+> > import { RendererLike } from 'render-jsx';
+> > import { ComponentPlugin } from 'render-jsx/component/plugins';
+> > 
+> > 
+> > export abstract class Component<Node, Renderer=RendererLike<Node>> {   // --> a base class for our components
+> >   static __COMP_CLASS_BASE__ = true;                                   // --> this allows us to check if given tag is a class extending this base class
+> > 
+> >   constructor(
+> >     protected props,                                                   // --> collect given props
+> >     protected children,                                                // --> collect the children
+> >     protected renderer,                                                // --> collect the renderer
+> >     protected provision                                                // --> collect additional provisions
+> >   ) {}
+> > 
+> >   abstract render(renderer: Renderer);                                 // --> this will be invoked for rendering stuff
+> > }
+> > 
+> > 
+> > export class ClassComponentPlugin<Node>                                // --> so our plugin is generic towards node type
+> >   extends ComponentPlugin<Node, RendererLike<Node>> {                  // --> and can work with any renderer
+> > 
+> >   priority() { return ComponentPlugin.PriorityMax; }
+> > 
+> >   match(component) {                                                   // --> determines if given component data match this plugin
+> >     return typeof component.tag === 'function'                         // --> check if the tag is a function (constructor)
+> >           && component.tag.__COMP_CLASS_BASE__;                        // --> check if it is a class extending our base component class
+> >   }
+> > 
+> >   createComponent(component, provision) {
+> >     return new component.tag(                                          // --> invoke the constructor
+> >       component.props,                                                 // --> give it the props
+> >       component.children,                                              // --> give it the children
+> >       this.renderer(),                                                 // --> give it the plugged in renderer
+> >       provision                                                        // --> give it the additional provisions
+> >     ).render(this.renderer());                                         // --> call its render
+> >   }
+> > }
+> > ```
+
+<iframe height="256" deferred-src="https://callbag-jsx-demo-plugin-class-comp.stackblitz.io/" />
+
+> :Buttons
+> > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-plugin-class-comp
+>
+> > :Button label=Learn More, url=https://loreanvictor.github.io/render-jsx/docs/usage/custom-renderers/custom-component-processors#custom-component-plugins
+
 
 
 <br><br>
