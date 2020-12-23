@@ -1,14 +1,23 @@
 // tslint:disable: no-magic-numbers
 
-import subject from 'callbag-subject';
+import state from 'callbag-state';
 import { List, makeRenderer } from '../src';
 
 const renderer = makeRenderer();
 
-const s = subject<{x: number, y: string}[]>();
+const s = state<{x: number, y: string}[]>([
+  {x: 12, y: 'A'},
+  {x: 54, y: 'B'},
+  {x: 7,  y: 'C'},
+  {x: 43, y: 'D'},
+]);
 
-renderer.render(<List of={s} each={i => <div>{i.sub('y')}</div>} key={i => i.x}/>).on(document.body);
+renderer.render(
+  <List of={s} each={(i, j) =>
+    <div onclick={() => s.set(s.get().filter(d => d.x !== i.get()!.x))}>
+      {j} - {j} - {i.sub('y')}
+    </div>
+  } key={i => i.x}
+  />
+).on(document.body);
 
-s(1, [{x: 1, y: 'A'}, {x: 2, y: 'B'}]);
-
-setTimeout(() => s(1, [{x: 1, y: 'C'}, {x: 3, y: 'D'}]), 3000);
