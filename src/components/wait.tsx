@@ -16,7 +16,7 @@ export interface WaitPropsSequentially<T> {
 
 export interface WaitPropsConcurrently<T> {
   for: Source<T> | Promise<T>;
-  then: (t: State<T | undefined>) => Node;
+  then: (t: State<T>) => Node;
   with?: () => Node;
   concurrently: true;
 }
@@ -39,14 +39,14 @@ export function Wait<T>(
   this.setLifeCycleMarker(start);
 
   if (isConcurrently(props)) {
-    const data = state<T | undefined>(undefined);
+    const data = state<T>(undefined as any);
     const node = props.then(data);
 
     this.track(
       tapOne(props.for, i => {
-        data.set(i);
         scanRemove(start, end, { remove: n => renderer.remove(n) });
         renderer.render(node).after(start);
+        data.set(i);
       })
     );
   } else {

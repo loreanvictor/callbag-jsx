@@ -105,4 +105,22 @@ describe('Wait', () => {
       }, 1);
     });
   });
+
+  it('should properly track sub-state updates in concurrent mode.', done => {
+    testRender((renderer, document) => {
+      let res: any;
+      const src = new Promise<{x: number}>(r => res = r);
+
+      renderer.render(<Wait concurrently for={src}
+        with={() => <>Loading ...</>}
+        then={i => <>{i.sub('x')}</>}/>
+      ).on(document.body);
+      document.body.textContent!.should.equal('Loading ...');
+      res({x : 42});
+      setTimeout(() => {
+        document.body.textContent!.should.equal('42');
+        done();
+      }, 1);
+    });
+  });
 });
