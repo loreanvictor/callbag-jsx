@@ -142,5 +142,5 @@ codedoc serve           # --> serve docs on `localhost:3000/render-jsx` (from `d
 <br><br>
 
 <div align="center">
-  <img src="/docs/assets/callbag.svg" width="300px"/>
+  <img src="/docs/assets/callbag.svg" width="200px"/>
 </div>
