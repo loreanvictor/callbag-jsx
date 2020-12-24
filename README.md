@@ -138,3 +138,9 @@ codedoc install         # --> install CODEDOC dependencies (for working on docs)
 ```bash
 codedoc serve           # --> serve docs on `localhost:3000/render-jsx` (from `docs/md/`)
 ```
+
+<br><br>
+
+<div align="center">
+  <img src="/docs/assets/callbag.svg" width="200px"/>
+</div>
