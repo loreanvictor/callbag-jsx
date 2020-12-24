@@ -109,6 +109,14 @@ renderer.render(
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-substate
 
+<br>
+
+> [local_library](:Icon) **FURTHER READING**
+>
+> States are directly exported from [callbag-state](https://github.com/loreanvictor/callbag-state),
+> with special integrations with inputs and lists. Checkout [docs of that library](https://github.com/loreanvictor/callbag-state)
+> for more information.
+
 <br><br>
 
 > :ToCPrevNext
