@@ -5,7 +5,7 @@
 
 <br>
 
-Callbag JSX is an extension of [Render JSX](https://loreanvictor.github.io/render-jsx/).
+`callbag-jsx` is an extension of [Render JSX](https://loreanvictor.github.io/render-jsx/).
 The `makeRenderer()` function returns a [DOM Renderer](https://loreanvictor.github.io/render-jsx/docs/usage/dom/overview)
 with some callbag-related plugins plugged. You can recreate this function like this:
 

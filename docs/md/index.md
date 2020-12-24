@@ -7,7 +7,7 @@
 > >
 > > <div align="center"><img src="/docs/assets/callbag-jsx-dark-banner.svg" width="300px"/></div>
 
-`callbag-jsx` is a minimalist UI library using JSX for layouts and [callbags](https://github.com/callbag/callbag)
+`callbag-jsx` is a minimalist UI library using [JSX](/jsx) for layouts and [callbags](/reactivity/callbags)
 for reactivity. No virtual DOM, no dirty model checking, no compile time invalidations,
 or any other magic tricks.
 
