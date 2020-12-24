@@ -99,7 +99,7 @@ renderer.render(
     <input type='text' _state={dude.sub('interests').sub(0)}/>
     <input type='text' _state={dude.sub('interests').sub(1)}/>
 
-    <pre>{expr($ => JSON.stringify($(dude), null, 2))}</pre>
+    <pre>{expr($ => JSON.stringify($(dude), null, 4))}</pre>
   </>
 ).on(document.body);
 ```
