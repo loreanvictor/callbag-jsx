@@ -10,18 +10,19 @@
 
 ---
 
-> :Collapse label=DOM
+> :Collapse label=Basics
 >
-> [Content](/dom/content)
-> [Attributes](/dom/attributes)
-> [Classes](/dom/classes)
-> [Styles](/dom/styles)
-> [Events](/dom/events)
-> [Inputs](/dom/inputs)
-> [Conditionals](/dom/conditionals)
-> [Lists](/dom/lists)
-> [Wait](/dom/wait)
-> [Renderer](/dom/renderer)
+> [Content](/basics/content)
+> [Attributes](/basics/attributes)
+> [Classes](/basics/classes)
+> [Styles](/basics/styles)
+> [Events](/basics/events)
+> [Inputs](/basics/inputs)
+> [Conditionals](/basics/conditionals)
+> [Lists](/basics/lists)
+> [Wait](/basics/wait)
+> [References](/basics/references)
+> [Renderer](/basics/renderer)
 
 ---
 

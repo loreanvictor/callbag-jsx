@@ -103,7 +103,7 @@ setInterval(() => count.set(count.get() + 1), 1000);
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-timer
 >
-> > :Button label=Learn More, url=/dom/content
+> > :Button label=Learn More, url=/basics/content
 
 <br>
 
@@ -114,7 +114,7 @@ setInterval(() => count.set(count.get() + 1), 1000);
 ```
 
 > :Buttons
-> > :Button label=Learn More, url=/dom/attributes
+> > :Button label=Learn More, url=/basics/attributes
 
 <br>
 
@@ -140,7 +140,7 @@ renderer.render(
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-clicks?file=index.tsx
 >
-> > :Button label=Learn More, url=/dom/events
+> > :Button label=Learn More, url=/basics/events
 
 <br>
 
@@ -165,7 +165,7 @@ renderer.render(<>
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-input?file=index.tsx
 >
-> > :Button label=Learn More, url=/dom/inputs
+> > :Button label=Learn More, url=/basics/inputs
 
 <br>
 
@@ -225,7 +225,7 @@ renderer.render(
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo
 >
-> > :Button label=Learn More, url=/dom/styles
+> > :Button label=Learn More, url=/basics/styles
 
 <br>
 
@@ -236,7 +236,7 @@ renderer.render(
 ```
 
 > :Buttons
-> > :Button label=Learn More, url=/dom/classes
+> > :Button label=Learn More, url=/basics/classes
 
 <br>
 
@@ -267,7 +267,7 @@ renderer.render(<>
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-conditional
 >
-> > :Button label=Learn More, url=/dom/conditionals
+> > :Button label=Learn More, url=/basics/conditionals
 
 <br>
 
@@ -300,7 +300,7 @@ renderer.render(<>
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-list
 >
-> > :Button label=Learn More, url=/dom/lists
+> > :Button label=Learn More, url=/basics/lists
 
 <br>
 
@@ -327,7 +327,7 @@ renderer.render(
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-wait
 >
-> > :Button label=Learn More, url=/dom/wait
+> > :Button label=Learn More, url=/basics/wait
 
 ---
 
@@ -375,7 +375,7 @@ renderer.render(
 - [JSX](/jsx)
 - [Callbags](/reactivity/callbags)
 - [Components Overview](/components/overview)
-- [The DOM Renderer](/dom/renderer)
+- [The DOM Renderer](/basics/renderer)
 
 <br><br>
 

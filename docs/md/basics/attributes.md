@@ -76,7 +76,7 @@ const D = <div title='wassup' {...props as any}/>;
 While you can set `class` or `style` attributes similar to all other attributes, `callbag-jsx`
 provides plugins that make managing element classes and styles much easier.
 
-> 👉 Read more about [classes](/dom/classes) and [styles](/dom/styles).
+> 👉 Read more about [classes](/basics/classes) and [styles](/basics/styles).
 
 <br><br>
 

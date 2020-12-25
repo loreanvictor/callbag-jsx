@@ -230,7 +230,7 @@ Child elements are passed to component functions as the third argument:
 Component functions are called only once, when they are used within JSX:
 
 ```tsx
-const Z = <MyComp x={42}/>     {/* --> MyComp() is called once here*/}
+const Z = <MyComp x={42}/>
 ```
 ☝️ This is _roughly_ equivalent to the following:
 ```tsx
@@ -239,7 +239,7 @@ const Z = MyComp({ x: 42 }, renderer)
 
 <br>
 
-A component has two other important life-cycle events as well:
+A component has two other important life-cycle events:
 - **Bind**: when the elements it has created are added to the main document.
 - **Clear**: when the elements it has created are removed from the main document.
 
@@ -255,7 +255,8 @@ function MyComponent(...) {
 > :Buttons
 > > :Button label=Learn More, url=/components/hooks
 
-👉 More conveniently, you can [track](/components/tracking) callbags (or subscriptions):
+👉 More conveniently, you can [track](/components/tracking) callbags (or subscriptions) between these two events (i.e. while
+created elements are on screen):
 
 ```tsx
 export function JinxCheck({ source }, renderer) {

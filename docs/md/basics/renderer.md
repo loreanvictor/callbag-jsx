@@ -5,6 +5,136 @@
 
 <br>
 
+Renderer objects provide all of `callbag-jsx`'s core functionalities. JSX syntax is transpiled to use `renderer`'s methods
+(thats why you need a `renderer` object in any context you write JSX), additionally renderer objects provide methods
+that thinly wrap DOM APIs.
+
+```tsx
+import { makeRenderer } from 'callbag-jsx';
+
+const renderer = makeRenderer();
+```
+
+<br>
+
+---
+
+<br>
+
+## Creating Elements
+
+`.create()` method creates elements or components. JSX is transpiled to `renderer.create()`,
+so these two are the same:
+
+```tsx
+const x = <div class='X'/>;
+const y = <Component prop={42}>Hellow There!</Component>;
+```
+```tsx
+const x = renderer.create('div', {'class': 'X'});
+const y = renderer.create(Component, {'prop': 42}, 'Hellow There!');
+```
+
+<br>
+
+---
+
+<br>
+
+## Rendering Elements
+
+`.render()` method renders given elements on/before/after target elements:
+
+```tsx
+renderer.render(x).on(document.body);
+renderer.render(<div>Hellow</div>).before(x);
+renderer.render(<span>!</span>).after(x);
+```
+
+<br>
+
+👉 When an element is rendered on the main document (appearing on screen) using `.render()`, its life-cycle
+hooks will also be activated. This causes all [callbags](/reactivity/callbags) embedded in the element to also
+be tracked and used to update the element's content / attributes:
+
+```tsx
+const x = <div>{interval(1000)} have been passed.</div>;
+
+/*~warn~*/document.body.appendChild(x);/*~warn~*/
+// 👉 `x` will be rendered on body, but the interval will not be tracked,
+//    so its content won't be updated.
+
+renderer.render(x).on(document.body);
+// 👉 `x` will be rendered on body, and the interval will also be tracked,
+//    updating `x`'s content every second.
+```
+
+<br>
+
+> ⚠️ **IMPORTANT** ⚠️
+>
+> Always use `renderer.render()` instead of `document.body.appendChild()`, or equivalent
+> methods of DOM APIs.
+
+<br>
+
+---
+
+<br>
+
+## Removing Elements
+
+`.remove()` function will remove given element from its parents:
+
+```tsx
+renderer.remove(x);
+```
+
+<br>
+
+When an element is removed from the main document using `.remove()`, its life-cycle hooks
+will also be cleared. This ensures that subscriptions and other allocated resources for the
+element will also be cleared.
+
+<br>
+
+> ⚠️ **IMPORTANT** ⚠️
+>
+> Always use `renderer.remove()` for removing elements, as otherwise you will have orphan
+> subscriptions and other resources not cleaned up and sticking in the memory.
+
+<br>
+
+---
+
+<br>
+
+## Other Methods
+
+Renderers also provide the following methods useful for manipulating DOM:
+
+```tsx
+renderer.append(target, host);        // --> appends target to host
+renderer.setProp(node, prop, target); // --> sets given property to target on given node
+renderer.setContent(node, target);    // --> sets content (e.g. inner HTML) of given node to given target
+renderer.leaf();                      // --> creates a leaf node (e.g. text node)
+renderer.fragment;                    // --> creates a fragment (e.g. `DocumentFragment`)
+```
+
+<br>
+
+👉 It is highly recommendable to use these methods whenever you want to do DOM manipulations, as they utilize
+all [rendering plugins](#renderer-plugins) and additional features otherwise not available.
+For example, `.setProp()` can set properties to [callbags](/reactivity/callbags), etc.
+
+<br>
+
+---
+
+<br>
+
+## Renderer Plugins
+
 `callbag-jsx` is an extension of [Render JSX](https://loreanvictor.github.io/render-jsx/).
 The `makeRenderer()` function returns a [DOM Renderer](https://loreanvictor.github.io/render-jsx/docs/usage/dom/overview)
 with some callbag-related plugins plugged. You can recreate this function like this:
@@ -47,7 +177,7 @@ export function makeRenderer(dom?: DOMWindow) {
 
 <br>
 
-## Example: Date Plugin
+### Example: Date Plugin
 
 In this example we create a custom plugin that allows us to render `Date` objects on the DOM:
 
@@ -89,6 +219,8 @@ In this example we create a custom plugin that allows us to render `Date` object
 > > }
 > > ```
 
+<br>
+
 <iframe height="256" deferred-src="https://callbag-jsx-demo-plugin-date.stackblitz.io/" />
 
 > :Buttons
@@ -102,7 +234,7 @@ In this example we create a custom plugin that allows us to render `Date` object
 
 <br>
 
-## Example: Config Plugin
+### Example: Config Plugin
 
 In this example we create a custom plugin that provides given config
 object to all components:
@@ -152,6 +284,8 @@ object to all components:
 > > }
 > > ```
 
+<br>
+
 <iframe height="256" deferred-src="https://callbag-jsx-demo-plugin-config.stackblitz.io/" />
 
 > :Buttons
@@ -165,7 +299,7 @@ object to all components:
 
 <br>
 
-## Example: Class-based Components
+### Example: Class-based Components
 
 In this example we create a plugin that enables use of class-based components:
 
@@ -236,6 +370,8 @@ In this example we create a plugin that enables use of class-based components:
 > >   }
 > > }
 > > ```
+
+<br>
 
 <iframe height="256" deferred-src="https://callbag-jsx-demo-plugin-class-comp.stackblitz.io/" />
 
