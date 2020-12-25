@@ -31,14 +31,16 @@ const add = () => {
   next.set('');
 };
 
-renderer.render(<div>
-  <h1>Todos</h1>
-  <ol>
-    <List of={todos} each={todo => <li>{todo.sub('title')}</li>}/>
-  </ol>
-  <input type='text' _state={next} placeholder='What should be done?'/>
-  <button onclick={add}>Add</button>
-</div>).on(document.body);
+renderer.render(
+  <>
+    <h1>Todos</h1>
+    <ol>
+      <List of={todos} each={todo => <li>{todo.sub('title')}</li>}/>
+    </ol>
+    <input type='text' _state={next} placeholder='What should be done?'/>
+    <button onclick={add}>Add</button>
+  </>
+).on(document.body);
 ```
 [►TRY IT!](https://stackblitz.com/edit/callbag-jsx-todolist)
 
