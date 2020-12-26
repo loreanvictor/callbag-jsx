@@ -99,7 +99,7 @@ function MyComponent(props, renderer) {
 
 ## Use without JSX
 
-Since JSX is just a syntactic sugar, you can use `callbag-jsx` without actually using JSX:
+Since JSX is just a syntactic sugar, you _can_ use `callbag-jsx` without actually using JSX:
 
 > :Tabs
 > > :Tab title=JSX

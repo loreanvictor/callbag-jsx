@@ -5,8 +5,6 @@
 
 <br>
 
-The `<List/>` component allows rendering dynamic lists:
-
 ```tsx
 import { List } from 'callbag-jsx';
 
@@ -32,9 +30,9 @@ renderer.render(
 
 <br>
 
-👉 `<List/>` provides a state object (a sub-state) to the `each()` parameter, representing
-the value of a specific index of given list.
-You can track/render properties of each value using `.sub()` method:
+👉 `each()` function will be provided with a [state](/reactivity/states) object, reflecting
+the value of a particular index. \
+👉 Use `.sub()` method to read/track its properties:
 
 ```tsx
 const todos = state([{title: 'Do this'}, {title: 'Do that'}]);
@@ -61,11 +59,13 @@ renderer.render(
 
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-todolist
+>
+> > :Button label=Learn More, url=/reactivity/states#substates
 
 <br>
 
-👉 You can also use `.get()` method on the state passed to `each()` parameter
-to get a snapshot value. This can be useful for example for handling clicks on items of the list:
+👉 Use `.get()` method to get a snapshot value.
+This can be useful for handling events on items of the list:
 
 ```tsx
 const records = state([]);
@@ -106,7 +106,7 @@ renderer.render(
 
 ## Indexes
 
-The index of the element being rendered is also passed to `each()` parameter
+The index of each element is passed to `each()`
 as a second argument:
 
 ```tsx
@@ -148,13 +148,17 @@ renderer.render(
 
 ## Keyed Lists
 
-By default, DOM elements (returned by `each()` parameter) are mapped to a specific index
-(the index that is also passed to `each()` as second parameter). This can lead to unnecessary
-DOM updates: for example removing the first element of the list causes a change in values of all indexes
-of the list, so all DOM elements will be updated.
+By default, DOM elements (returned by `each()`) are bound to a specific index.
+Sometimes this is inefficient: removing the first element will change 
+values of all indexes and all DOM elements will be updated.
 
-To make DOM updates smarter, DOM elements need to be connected to list elements via some other indentifier.
-This identifier can be passed to `<List/>` component as `key` property:
+For smarter updates, DOM and list elements must be connected by another key
+(e.g. an `id` attribute):
+
+```tsx
+const key = element => elemenet.id;
+```
+☝️ This is called a key function. Pass it to `key` property of `<List/>` for smarter DOM updates:
 
 ```tsx
 const tasks = state([]);
@@ -196,16 +200,16 @@ renderer.render(
 
 > [info](:Icon (align=-6px)) **IMPORTANT**
 >
-> The key function passed to `<List/>` **MUST** return _stable_ and _unique_ strings or numbers:
+> The key function passed to **MUST** return _stable_ and _unique_ strings (or numbers):
 >
 > - _stable_ means it should return the same value for the same object (so no random stuff).
 > - _unique_ means it should not return the same value for different objects.
 
 <br>
 
-👉 When key function is provided, `each()` property will be invoked for each unique key (instead of index).
-Since the list index corresponding to each item (unique key) can change over time, the `index` parameter
-provided to `each()` will also be a callbag instead of a static value:
+👉 When `key` is provided, `each()` will be invoked for each unique key (instead of index).
+As the index of that key can change, `index` parameter
+passed to `each()` will become a [callbag](/reactivity/callbags) (instead of a fixed number):
 
 ```tsx
 const tasks = state([]);

@@ -5,7 +5,7 @@
 
 <br>
 
-States are [callbags](/reactivity/callbags) that can store/track changing data:
+States are [callbags](/reactivity/callbags) whose value can be manually modified:
 
 ```tsx | --term ​
 import { state } from 'callbag-state';
@@ -74,8 +74,7 @@ console.log(s.get());
 
 ## Substates
 
-When you store objects or arrays inside a state, you can get state objects corresponding
-to specific properties/indexes using the `.sub()` method:
+When you store objects or arrays inside a state, use `.sub()` to read/change their properties/indexes:
 
 ```tsx
 const dude = state({
@@ -108,6 +107,8 @@ renderer.render(
 
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-substate
+
+☝️ `.sub()` also returns a state, so you can use `.get()`, `.set()` and `.sub()` on it recursively.
 
 <br>
 

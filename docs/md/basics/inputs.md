@@ -5,8 +5,6 @@
 
 <br>
 
-You can bind inputs to state objects using `_state` attribute:
-
 ```tsx
 const input = state('');
 
@@ -24,7 +22,7 @@ renderer.render(
 
 👉 This works with various input types, `<select>` elements and `<textarea>` elements.
 
-👉 You can also use `_value` attribute on selects to attach object values to each option:
+👉 Use `_value` attribute on select options to attach object values to each option:
 
 ```tsx
 const people = state([]);

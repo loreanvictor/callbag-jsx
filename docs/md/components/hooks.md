@@ -29,7 +29,7 @@ on **CLEAR**.
 
 <br>
 
-With component hooks, you can tap into these hooks in your component functions as well:
+Component hooks allow you to tap into these hooks in your component functions:
 
 ```tsx
 export function MyComponent(_, renderer) {

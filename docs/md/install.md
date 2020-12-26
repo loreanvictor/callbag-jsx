@@ -47,7 +47,7 @@ template and follow the instructions on the README of the template repository.
 
 <br>
 
-> 👉 If you do not have a GitHub account or don't want the repo on GitHub, you can simply
+> 👉 If you do not have a GitHub account or don't want the repo on GitHub,
 > clone any of the template repos and reset the origin.
 
 <br>
@@ -58,7 +58,7 @@ template and follow the instructions on the README of the template repository.
 
 ## Manual Installation
 
-For manual installation, you can simply install the package via NPM (or yarn):
+For manual installation, install the package via NPM (or yarn):
 
 ```bash
 npm i callbag-jsx
@@ -66,7 +66,7 @@ npm i callbag-jsx
 
 <br>
 
-To configure your transpiler to work with `callbag-jsx`, you can include the following
+To configure your transpiler to work with `callbag-jsx`, include the following
 pragmas at the beginning of your `.tsx` / `.jsx` files:
 
 ```tsx
@@ -83,8 +83,9 @@ pragmas at the beginning of your `.tsx` / `.jsx` files:
 
 <br>
 
-Instead of per-file configuration, you can use transpiler-specific project-wide configurations as well.
-If you are using Babel, your configuration should look like this:
+👉 It is recommended to configure your transpiler on a project level instead of including per-file configs.
+
+When using Babel, configure JSX as follows:
 
 ```json | .babelrc
 {
@@ -99,7 +100,7 @@ If you are using Babel, your configuration should look like this:
 
 <br>
 
-Or if you are using TypeScript, your configuration should look something like this:
+When using TypeScript, configure JSX as follows:
 
 ```json | tsconfig.json
 {
@@ -176,7 +177,7 @@ setInterval(() => s.set(s.get() + 1), 1000);
 
 <br>
 
-> Quite naturally, using `callbag-jsx` in this way means you cannot use JSX.
+> Using `callbag-jsx` in this way means you cannot use JSX.
 > [Read this entry](/jsx) to learn more about using `callbag-jsx` without JSX.
 
 <br><br>

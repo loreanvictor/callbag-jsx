@@ -5,9 +5,7 @@
 
 <br>
 
-Renderer objects provide all of `callbag-jsx`'s core functionalities. JSX syntax is transpiled to use `renderer`'s methods
-(thats why you need a `renderer` object in any context you write JSX), additionally renderer objects provide methods
-that thinly wrap DOM APIs.
+Renderer objects provide all of `callbag-jsx`'s core functionalities.
 
 ```tsx
 import { makeRenderer } from 'callbag-jsx';
@@ -114,11 +112,12 @@ element will also be cleared.
 Renderers also provide the following methods useful for manipulating DOM:
 
 ```tsx
-renderer.append(target, host);        // --> appends target to host
-renderer.setProp(node, prop, target); // --> sets given property to target on given node
-renderer.setContent(node, target);    // --> sets content (e.g. inner HTML) of given node to given target
-renderer.leaf();                      // --> creates a leaf node (e.g. text node)
-renderer.fragment;                    // --> creates a fragment (e.g. `DocumentFragment`)
+renderer.append(target, host);           // --> appends target to host
+renderer.setProp(node, prop, target);    // --> sets given property to target on given node
+renderer.setContent(node, target);       // --> sets content (e.g. inner HTML) of given node to given target
+renderer.hook(node, { bind(), clear() });// --> attach life-cycle hooks to the given node
+renderer.leaf();                         // --> creates a leaf node (e.g. text node)
+renderer.fragment;                       // --> creates a fragment (e.g. `DocumentFragment`)
 ```
 
 <br>
@@ -135,9 +134,8 @@ For example, `.setProp()` can set properties to [callbags](/reactivity/callbags)
 
 ## Renderer Plugins
 
-`callbag-jsx` is an extension of [Render JSX](https://loreanvictor.github.io/render-jsx/).
 The `makeRenderer()` function returns a [DOM Renderer](https://loreanvictor.github.io/render-jsx/docs/usage/dom/overview)
-with some callbag-related plugins plugged. You can recreate this function like this:
+with some callbag-related plugins plugged:
 
 ```ts
 import { CommonDOMRenderer, LiveDOMRenderer } from 'render-jsx/dom'; // @see [Render JSX](https://loreanvictor.github.io/render-jsx/docs/usage/dom/overview)

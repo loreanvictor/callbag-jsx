@@ -61,7 +61,7 @@ can set data or aria attributes without any errors:
 <div data-x="hellow" aria-label="Yo!"/>
 ```
 
-If you want to have custom attributes, you can either use the same `*-*` convention, or add the attributes
+If you want to have custom attributes, either use the same `*-*` convention, or add the attributes
 using the spread operator and casting to `any`:
 
 ```tsx
@@ -73,7 +73,7 @@ const D = <div title='wassup' {...props as any}/>;
 
 ## Styles and Classes
 
-While you can set `class` or `style` attributes similar to all other attributes, `callbag-jsx`
+While `class` or `style` attributes are like other attributes, `callbag-jsx`
 provides plugins that make managing element classes and styles much easier.
 
 > 👉 Read more about [classes](/basics/classes) and [styles](/basics/styles).

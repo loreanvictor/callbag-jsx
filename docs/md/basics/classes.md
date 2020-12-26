@@ -5,8 +5,6 @@
 
 <br>
 
-You can provide classes as in HTML, or you can provide arrays:
-
 ```tsx
 <div class='greeting red'>Hellow World!</div>
 ```
@@ -18,7 +16,7 @@ You can provide classes as in HTML, or you can provide arrays:
 
 ## Dynamic Classes
 
-You can provide [callbags](/reactivity/callbags) in the array to dynamically switch the class:
+Provide [callbags](/reactivity/callbags) in the array to dynamically switch the class:
 ```tsx
 const timer = interval(1000);
 const _class = expr($ => $(timer) % 2 ? 'blue': 'red');
@@ -37,7 +35,7 @@ renderer.render(
 
 ## Class Maps
 
-You can also provide class maps, which map class names to booleans:
+Provide class maps (mapping class names to booleans or callbags of booleans) to dynamically toggle classes:
 
 ```tsx
 const timer = interval(1000);

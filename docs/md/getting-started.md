@@ -107,7 +107,7 @@ setInterval(() => count.set(count.get() + 1), 1000);
 
 <br>
 
-👉 You can similarly bind attributes of DOM elements to callbags:
+👉 This works similarly with attributes:
 
 ```tsx
 <div title={count}>Hover to see how many seconds you've been here.</div>
@@ -124,7 +124,7 @@ setInterval(() => count.set(count.get() + 1), 1000);
 
 ## DOM Events
 
-You can capture DOM events by providing an event listener function:
+Capture DOM events by providing an event listener function:
 
 ```tsx
 const count = state(0);
@@ -150,7 +150,7 @@ renderer.render(
 
 ## User Input
 
-You can fetch user input using `_state` attribute:
+Fetch user input using `_state` attribute:
 
 ```tsx
 const input = state('');
@@ -175,8 +175,8 @@ renderer.render(<>
 
 ## Dynamic Expressions
 
-You can use [`expr`](https://github.com/loreanvictor/callbag-expr) 
-to easily create callbags based on expressions from other callbags:
+Use [`expr`](https://github.com/loreanvictor/callbag-expr) 
+to dynamic expressions from other callbags:
 
 ```tsx
 import { expr } from 'callbag-common';
@@ -204,8 +204,7 @@ renderer.render(<>
 
 ## Dynamic Styles & Classes
 
-Alongside dynamic content and attribute, you can specifically set dynamic styles
-for your element by providing a _style map_ with some of its values being callbags:
+Set dynamic styles for your element by providing a _style map_ with some of its values being callbags:
 
 ```tsx
 const count = state(0);
@@ -229,7 +228,7 @@ renderer.render(
 
 <br>
 
-👉 Similarly, you can use callbags to dynamically change classes of a particular element.
+👉 Use callbags similarly in _class maps_ for dynamically changing classes:
 
 ```tsx
 <div class={{ odd: expr($ => $(i) % 2 === 0) }}/>
@@ -277,7 +276,7 @@ renderer.render(<>
 
 ## Dynamic Lists (Loops)
 
-You can use `<List/>` component to create dynamic lists:
+Use `<List/>` component to create dynamic lists:
 
 ```tsx
 import { List } from 'callbag-jsx';
@@ -308,7 +307,7 @@ renderer.render(<>
 
 ## Data Fetching
 
-You can use `<Wait/>` component for rendering based on data that is fetched asynchronously. 
+Use `<Wait/>` component for rendering based on data that is fetched asynchronously. 
 
 ```tsx
 import { Wait } from 'callbag-jsx';

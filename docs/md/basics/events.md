@@ -5,8 +5,6 @@
 
 <br>
 
-You can capture DOM events by providing functions as event handlers:
-
 ```tsx
 const count = state(0);
 

@@ -5,9 +5,6 @@
 
 <br>
 
-Use `<Wait/>` when you want to show content based on data that is being fetched asynchronously:
-
-
 ```tsx
 import { Wait } from 'callbag-jsx';
 
@@ -41,20 +38,19 @@ for its next emission.
 
 ## Concurrent Rendering
 
-By default, `<Wait/>` waits for the data to be fetched and then invokes given `then()` function.
-This means that by default, DOM elements are created after the data is fully fetched.
+By default, `<Wait/>` starts creating DOM elements after data is fetched.
+This process can be sped up by creating DOM elements _while_ data is being fetched, and then updating them accordingly.
 
-The process can be sped up by using `<Wait/>` in concurrent mode. In this mode `then()` function
-is invoked right away with a state instead of plain value which will resolve to data when data is fetched.
-DOM elements returned will be kept in memory until data is loaded. This allows you to create
-necessary DOM elements while data is being loaded and then updating them accordingly:
+Pass `concurrently` flag to enable concurrent rendering.
+Note that in concurrent mode, `then()` will be given
+a [state](/reactivity/states) instead of a plain object.
 
 ```tsx
 renderer.render(
-  <Wait concurrently
+/*!*/  <Wait concurrently
     for={fetch('https://pokeapi.co/api/v2/pokemon/charizard').then(res => res.json())}
     with={() => <>Loading ...</>}
-    then={pokemon => <h1>{pokemon.sub('name')}</h1>}
+/*!*/    then={pokemon => <h1>{pokemon.sub('name')}</h1>}
   />
 ).on(document.body);
 ```

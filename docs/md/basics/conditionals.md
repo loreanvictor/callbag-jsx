@@ -5,9 +5,6 @@
 
 <br>
 
-The `<Conditional/>` component allows you to change content based on some
-dynamic condition:
-
 ```tsx
 import { Conditional } from 'callbag-jsx';
 
