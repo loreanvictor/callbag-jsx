@@ -48,7 +48,7 @@ renderer.render(
 
 ## Why?
 
-👉 [Long Answer Here](https://loreanvictor.github.io/callbag-jsx/in-depth/why)
+👉 [Long Answer Here](https://loreanvictor.github.io/callbag-jsx/meta/why)
 
 Main purpose of `callbag-jsx` is to provide full control over DOM while being as convenient as tools like React.
 In other words, unlike other frameworks and tools, `callbag-jsx` **DOES NOT** infer when and how to update the DOM,
@@ -61,7 +61,7 @@ As a result:
 - It is pretty straight-forward, i.e. it just bind given callbags to DOM elements. So no [weird hooks rules](https://reactjs.org/docs/hooks-rules.html).
 - It is pretty robust, e.g. modify the DOM manually if you need to.
 
-👉 [Comparison with Other Frameworks](https://loreanvictor.github.io/callbag-jsx/in-depth/compare)
+👉 [Comparison with Other Frameworks](https://loreanvictor.github.io/callbag-jsx/meta/compare)
 
 <br><br>
 
