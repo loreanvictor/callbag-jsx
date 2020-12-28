@@ -22,7 +22,6 @@
 > [Lists](/basics/lists)
 > [Wait](/basics/wait)
 > [References](/basics/references)
-> [Renderer](/basics/renderer)
 
 ---
 
@@ -44,6 +43,12 @@
 
 > :Collapse label=In-Depth
 >
-> [Why Callbag-JSX?](/in-depth/why)
 > [Under the Hood](/in-depth/under-the-hood)
-> [Comparison with Other Frameworks](/in-depth/compare)
+> [Renderer](/in-depth/renderer)
+
+---
+
+> :Collapse label=Meta
+>
+> [Why Callbag-JSX?](/meta/why)
+> [Comparison with Other Frameworks](/meta/compare)

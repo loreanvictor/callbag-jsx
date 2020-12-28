@@ -374,7 +374,7 @@ renderer.render(
 - [JSX](/jsx)
 - [Callbags](/reactivity/callbags)
 - [Components Overview](/components/overview)
-- [The DOM Renderer](/basics/renderer)
+- [The DOM Renderer](/in-depth/renderer)
 
 <br><br>
 

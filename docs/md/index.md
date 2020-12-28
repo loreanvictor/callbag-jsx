@@ -73,8 +73,8 @@ renderer.render(<>
 ## Quick Links
 
 - [Getting Started](/getting-started)
-- [Why Callbag-JSX?](/in-depth/why)
-- [Comparison with Other Frameworks](/in-depth/compare)
+- [Why Callbag-JSX?](/meta/why)
+- [Comparison with Other Frameworks](/meta/compare)
 
 <br><br>
 
