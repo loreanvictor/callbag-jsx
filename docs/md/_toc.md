@@ -6,6 +6,7 @@
 > :Collapse label=Introduction
 >
 > [How to Install](/install)
+> [Tools & Utilities](/tools)
 > [JSX](/jsx)
 
 ---
