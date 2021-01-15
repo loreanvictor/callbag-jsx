@@ -133,7 +133,99 @@ When using TypeScript, configure JSX as follows:
 
 ## Using via CDN
 
-To add `callbag-jsx` to a webpage via a CDN, simply include the following script tag in your HTML header:
+Enable live JSX transpilation by adding this script to your head tag:
+
+```html
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+```
+
+Now you can import and use Callbag JSX in your script tags:
+
+```html
+<script type="text/babel" data-type="module">
+  /** @jsx renderer.create */
+  /** @jsxFrag renderer.fragment */
+  import { makeRenderer } from 'https://unpkg.com/callbag-jsx/dist/bundles/callbag-jsx.es.min.js'
+
+  const renderer = makeRenderer()
+  renderer.render(<div>Hellow World!</div>).on(document.body)
+</script>
+```
+
+<br>
+
+👉 If you need to import libraries that do not have ES bundles on their own, you can use [skypack](https://www.skypack.dev):
+
+```jsx
+import { state } from 'https://cdn.skypack.dev/callbag-state'
+import { expr } from 'https://cdn.skypack.dev/callbag-expr'
+
+const count = state(0);
+
+const add = () => count.set(count.get() + 1)
+const color = expr($ => $(count) % 2 ? 'red' : 'green')
+
+renderer.render(
+  <div onclick={add} style={{ color }}>
+    You have clicked {count} times!
+  </div>
+).on(document.body)
+```
+
+<br>
+
+---
+
+<br>
+
+### In Production
+
+JSX transpilation in production is **NOT RECOMMENDED**, unless you don't have much code to begin with,
+loading performance is not a particular concern, or you need to do live transpilation (e.g. online playgrounds).
+
+👉 To disable JSX transpilation, simply do not import `@babel/standalone` script, and change your script tags to this:
+```html
+<script type="module">
+  import { makeRenderer } from 'https://unpkg.com/callbag-jsx@0.1.13/dist/bundles/callbag-jsx.es.min.js'
+  import { state } from 'https://cdn.skypack.dev/callbag-state'
+  import { expr } from 'https://cdn.skypack.dev/callbag-expr'
+
+  const renderer = makeRenderer()
+  const count = state(0);
+
+  const add = () => count.set(count.get() + 1);
+  const color = expr($ => $(count) % 2 ? 'red' : 'green')
+
+  renderer.render(
+    renderer.create(
+      'div',
+      {
+        onclick: add,
+        style: { color }
+      },
+      'You have clicked ', count, ' times !'
+    )
+  ).on(document.body)
+</script>
+```
+
+<br>
+
+☝️ In production, also fix the version you are importing. In above example we have fixed `callbag-jsx@0.1.13`.
+
+> Using `callbag-jsx` in this way means you cannot use JSX.
+> [Read this entry](/jsx) to learn more about using `callbag-jsx` without JSX.
+
+
+<br>
+
+---
+
+<br>
+
+### In Older Browsers
+
+Include the following script tag in your HTML header:
 
 ```html
 <script src="https://unpkg.com/callbag-jsx/dist/bundles/callbag-jsx.es6.min.js"></script>
@@ -170,8 +262,8 @@ setInterval(() => s.set(s.get() + 1), 1000);
 
 > 👉 For use on production, it is recommended to fetch specific versions of the bundles, i.e.
 > ```html
-> <script src="https://unpkg.com/callbag-jsx@0.1.0/dist/bundles/callbag-jsx.es6.min.js"></script>
-> <script src="https://unpkg.com/callbag-state@0.2.0/dist/bundles/callbag-state.es6.min.js"></script>
+> <script src="https://unpkg.com/callbag-jsx@0.1.13/dist/bundles/callbag-jsx.es6.min.js"></script>
+> <script src="https://unpkg.com/callbag-state@0.2.5/dist/bundles/callbag-state.es6.min.js"></script>
 > <script src="https://unpkg.com/callbag-expr@0.2.0/dist/bundles/callbag-expr.es6.min.js"></script>
 > ```
 
