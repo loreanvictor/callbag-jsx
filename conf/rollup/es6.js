@@ -9,7 +9,13 @@ export default Object.assign(base, {
     terser(),
     nodeResolve(),
   ],
-  output: Object.assign(base.output, {
-    file: 'dist/bundles/callbag-jsx.es6.min.js',
-  }),
+  output: [
+    Object.assign(base.output, {
+      file: 'dist/bundles/callbag-jsx.es6.min.js',
+    }),
+    {
+      file: 'dist/bundles/callbag-jsx.es.min.js',
+      format: 'es'
+    }
+  ]
 });
