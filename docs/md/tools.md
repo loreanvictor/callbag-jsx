@@ -93,7 +93,7 @@ provides integration with `callbag-jsx`. It also handles theming and automatical
 > :Tabs
 > > :Tab title=Component Code
 > > ```tsx | my-btn.tsx
-> > import { style } from 'themed-jss'
+> > import { style, when } from 'themed-jss'
 > > import { DarkMode } from 'themed-jss/dark-mode'
 > > 
 > > const MyBtnStyle = style(theme => ({
@@ -105,7 +105,7 @@ provides integration with `callbag-jsx`. It also handles theming and automatical
 > >     borderRadius: 3,
 > >     cursor: 'pointer',
 > > 
-> >     '&:hover': {
+> >     [when(':hover')]: {
 > >       color: theme.text,
 > >       background: 'transparent !darkmode',
 > >     }
@@ -165,13 +165,15 @@ should()
 
 describe('RemovableHellow', () => {
   it('should say hellow and then be removed when clicked', () => {
-    testRender((renderer, document, extras) => {
-      renderer.render(<RemovableHellow name='Jack'/>).on(document.body)
-      document.body.textContent.should.equal('Hellow Jack!')
 
-      extras.click(document.body.firstChild)
-      document.body.textContent.should.equal('')
-    })
+/*!*/    testRender((renderer, document, $) => {
+/*!*/      renderer.render(<RemovableHellow name='Jack'/>).on(document.body)
+/*!*/      document.body.textContent.should.equal('Hellow Jack!')
+/*!*/
+/*!*/      $('body :first-child').click()
+/*!*/      document.body.textContent.should.equal('')
+/*!*/    })
+
   })
 })
 ```
