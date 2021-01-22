@@ -91,6 +91,41 @@ export function PokeInfo(_, renderer) {
 > :Buttons
 > > :Button label=Playground, url=https://stackblitz.com/edit/callbag-jsx-demo-components-pokeapi
 
+<br>
+
+---
+
+<br>
+
+## Type Safety
+
+It is recommended to type-annotate the `this` argument in TypeScript for further type-safety. For utilizing
+tracking, you can use `TrackerComponentThis` interface for that purpose:
+
+```tsx
+import { TrackerComponentThis } from 'callbag-jsx';
+
+export function MyComponent(
+  this: TrackerComponentThis,
+  ...
+) {
+  ...
+}
+```
+
+<br>
+
+> 👉 You can also annotate `this` with multiple types:
+> ```tsx
+> export function MyComponent(
+>   this: TrackerComponentThis & LiveComponentThis,
+>   ...
+> ) {
+> ...
+> }
+> ```
+
+
 <br><br>
 
 > :ToCPrevNext
