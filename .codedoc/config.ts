@@ -37,6 +37,9 @@ export const config = /*#__PURE__*/configuration({
     github: {
       user: 'loreanvictor',
       repo: 'callbag-jsx',
+    },
+    gitter: {
+      room: 'callbag-jsx/community'
     }
   },
 });
