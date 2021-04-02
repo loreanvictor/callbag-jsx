@@ -98,6 +98,11 @@
       "hash": "Yh3xsnn5qnOWnIFn3RThGA=="
     },
     {
+      "name": "GitterToggle",
+      "filename": "/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/misc/gitter/index.js",
+      "hash": "5khOR8prz8j3gHsSAZSEZw=="
+    },
+    {
       "name": "DarkModeSwitch",
       "filename": "/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/darkmode/index.js",
       "hash": "AN8jSP7SNmb2s6oXj4D6+Q=="

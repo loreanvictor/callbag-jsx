@@ -18,6 +18,7 @@ import { ToCPrevNext } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/
 import { CollapseControl } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/collapse/collapse-control.js';
 import { GithubSearch } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/misc/github/search.js';
 import { ToCToggle } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/page/toc/toggle/index.js';
+import { GitterToggle } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/misc/gitter/index.js';
 import { DarkModeSwitch } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/darkmode/index.js';
 import { ConfigTransport } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/transport/config.js';
 import { TabSelector } from '/home/runner/work/callbag-jsx/callbag-jsx/.codedoc/node_modules/@codedoc/core/dist/es6/components/tabs/selector.js';
@@ -27,6 +28,7 @@ const components = {
   'xE4ZDlY4h9tPCSDLepP59w==': CollapseControl,
   'eH2KULtr47RPdqakkQxTMQ==': GithubSearch,
   'Yh3xsnn5qnOWnIFn3RThGA==': ToCToggle,
+  '5khOR8prz8j3gHsSAZSEZw==': GitterToggle,
   'AN8jSP7SNmb2s6oXj4D6+Q==': DarkModeSwitch,
   'PeVrfKaRDy+cSDOSRKBsUQ==': ConfigTransport,
   'BRWnXArVL7snbLVByshhlg==': TabSelector
