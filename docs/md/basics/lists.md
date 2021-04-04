@@ -149,16 +149,27 @@ renderer.render(
 ## Keyed Lists
 
 By default, DOM elements (returned by `each()`) are bound to a specific index.
-Sometimes this is inefficient: removing the first element will change 
-values of all indexes and all DOM elements will be updated.
+This means, for example, if you prepend an item to your array, contents of all DOM elements will
+be updated (since the _content_ of all indices of the array have changed):
 
-For smarter updates, DOM and list elements must be connected by another key
-(e.g. an `id` attribute):
+<div align="center">
+<img src="/docs/assets/keyed-list-explained-1.svg"/>
+</div>
+
+In some cases, this ☝️ is not the desired behavior. It can be inefficient to update all elements
+for a simple prepend, or you might need a more consistent mapping of elements to array items.
+
+You can specify how list items are mapped to DOM elements using a _key function_:
 
 ```tsx
-const key = element => elemenet.id;
+const key = x => x;
 ```
-☝️ This is called a key function. Pass it to `key` property of `<List/>` for smarter DOM updates:
+
+<div align="center">
+<img src="/docs/assets/keyed-list-explained-2.svg"/>
+</div>
+
+Pass the _key function_ to `key` property of `<List/>` for smarter DOM updates:
 
 ```tsx
 const tasks = state([]);
