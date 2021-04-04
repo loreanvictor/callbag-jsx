@@ -153,7 +153,7 @@ This means, for example, if you prepend an item to your array, contents of all D
 be updated (since the _content_ of all indices of the array have changed):
 
 <div align="center">
-<img src="/docs/assets/keyed-list-explained-1.svg"/>
+<img src="/docs/assets/keyed-list-explained-1.png"/>
 </div>
 
 In some cases, this ☝️ is not the desired behavior. It can be inefficient to update all elements
@@ -166,10 +166,10 @@ const key = x => x;
 ```
 
 <div align="center">
-<img src="/docs/assets/keyed-list-explained-2.svg"/>
+<img src="/docs/assets/keyed-list-explained-2.png"/>
 </div>
 
-Pass the _key function_ to `key` property of `<List/>` for smarter DOM updates:
+👉 Pass a _key function_ to `key` property of `<List/>` for smarter DOM updates:
 
 ```tsx
 const tasks = state([]);
