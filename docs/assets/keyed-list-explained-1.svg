@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="688px" height="413px" viewBox="0 0 688 413" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>keyed-list-explained-1</title>
+    <g id="keyed-list-explained-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(48.000000, 105.000000)">
+            <rect id="Rectangle" fill="#1E5F74" x="0" y="0" width="198" height="59" rx="4"></rect>
+            <text id="A" font-family="SourceCodePro-Regular, Source Code Pro" font-size="32" font-weight="normal" fill="#FFFFFF">
+                <tspan x="89.4" y="41">A</tspan>
+            </text>
+            <text id="div#1" font-family="SourceCodePro-Regular, Source Code Pro" font-size="12" font-weight="normal" fill="#FFFFFF">
+                <tspan x="4" y="16">div#1</tspan>
+            </text>
+            <text id="arr[0]" font-family="SourceCodePro-Regular, Source Code Pro" font-size="12" font-weight="normal" fill="#FFFFFF">
+                <tspan x="150.8" y="16">arr[0]</tspan>
+            </text>
+        </g>
+        <g id="Group-Copy-3" transform="translate(442.000000, 105.000000)">
+            <rect id="Rectangle" fill="#F5B461" x="0" y="0" width="198" height="59" rx="4"></rect>
+            <text id="X" font-family="SourceCodePro-Regular, Source Code Pro" font-size="32" font-weight="normal" fill="#FFFFFF">
+                <tspan x="89.4" y="41">X</tspan>
+            </text>
+            <text id="div#1" font-family="SourceCodePro-Regular, Source Code Pro" font-size="12" font-weight="normal" fill="#FFFFFF">
+                <tspan x="4" y="16">div#1</tspan>
+            </text>
+            <text id="arr[0]" font-family="SourceCodePro-Regular, Source Code Pro" font-size="12" font-weight="normal" fill="#FFFFFF">
+                <tspan x="150.8" y="16">arr[0]</tspan>
+            </text>
+        </g>
+        <g id="Group-Copy" transform="translate(48.000000, 172.000000)">
+            <rect id="Rectangle" fill="#1E5F74" x="0" y="0" width="198" height="59" rx="4"></rect>
+            <text id="B" font-family="SourceCodePro-Regular, Source Code Pro" font-size="32" font-weight="normal" fill="#FFFFFF">
+                <tspan x="89.4" y="41">B</tspan>
+            </text>
+            <text id="div#2" font-family="SourceCodePro-Regular, Source Code Pro" font-size="12" font-weight="normal" fill="#FFFFFF">
+                <tspan x="4" y="16">div#2</tspan>
+            </text>
+            <text id="arr[1]" font-family="SourceCodePro-Regular, Source Code Pro" font-size="12" font-weight="normal" fill="#FFFFFF">
+                <tspan x="150.8" y="16">arr[1]</tspan>
+            </text>
+        </g>
+        <g id="Group-Copy-4" transform="translate(442.000000, 172.000000)">
+            <rect id="Rectangle" fill="#F5B461" x="0" y="0" width="198" height="59" rx="4"></rect>
+            <text id="A" font-family="SourceCodePro-Regular, Source Code Pro" font-size="32" font-weight="normal" fill="#FFFFFF">
+                <tspan x="89.4" y="41">A</tspan>
+            </text>
+            <text id="div#2" font-family="SourceCodePro-Regular, Source Code Pro" font-size="12" font-weight="normal" fill="#FFFFFF">
+                <tspan x="4" y="16">div#2</tspan>
+            </text>
+            <text id="arr[1]" font-family="SourceCodePro-Regular, Source Code Pro" font-size="12" font-weight="normal" fill="#FFFFFF">
+                <tspan x="150.8" y="16">arr[1]</tspan>
+            </text>
+        </g>
+        <g id="Group-Copy-2" transform="translate(48.000000, 239.000000)">
+            <rect id="Rectangle" fill="#1E5F74" x="0" y="0" width="198" height="59" rx="4"></rect>
+            <text id="C" font-family="SourceCodePro-Regular, Source Code Pro" font-size="32" font-weight="normal" fill="#FFFFFF">
+                <tspan x="89.4" y="41">C</tspan>
+            </text>
+            <text id="div#3" font-family="SourceCodePro-Regular, Source Code Pro" font-size="12" font-weight="normal" fill="#FFFFFF">
+                <tspan x="4" y="16">div#3</tspan>
+            </text>
+            <text id="arr[2]" font-family="SourceCodePro-Regular, Source Code Pro" font-size="12" font-weight="normal" fill="#FFFFFF">
+                <tspan x="150.8" y="16">arr[2]</tspan>
+            </text>
+        </g>
+        <g id="Group-Copy-5" transform="translate(442.000000, 239.000000)">
+            <rect id="Rectangle" fill="#F5B461" x="0" y="0" width="198" height="59" rx="4"></rect>
+            <text id="B" font-family="SourceCodePro-Regular, Source Code Pro" font-size="32" font-weight="normal" fill="#FFFFFF">
+                <tspan x="89.4" y="41">B</tspan>
+            </text>
+            <text id="div#3" font-family="SourceCodePro-Regular, Source Code Pro" font-size="12" font-weight="normal" fill="#FFFFFF">
+                <tspan x="4" y="16">div#3</tspan>
+            </text>
+            <text id="arr[2]" font-family="SourceCodePro-Regular, Source Code Pro" font-size="12" font-weight="normal" fill="#FFFFFF">
+                <tspan x="150.8" y="16">arr[2]</tspan>
+            </text>
+        </g>
+        <g id="Group-Copy-6" transform="translate(442.000000, 306.000000)">
+            <rect id="Rectangle" fill="#21ABA5" x="0" y="0" width="198" height="59" rx="4"></rect>
+            <text id="C" font-family="SourceCodePro-Regular, Source Code Pro" font-size="32" font-weight="normal" fill="#FFFFFF">
+                <tspan x="89.4" y="41">C</tspan>
+            </text>
+            <text id="div#4" font-family="SourceCodePro-Regular, Source Code Pro" font-size="12" font-weight="normal" fill="#FFFFFF">
+                <tspan x="4" y="16">div#4</tspan>
+            </text>
+            <text id="arr[3]" font-family="SourceCodePro-Regular, Source Code Pro" font-size="12" font-weight="normal" fill="#FFFFFF">
+                <tspan x="150.8" y="16">arr[3]</tspan>
+            </text>
+        </g>
+        <text id="arr-=-['A',-'B',-'C'" font-family="SourceCodePro-Regular, Source Code Pro" font-size="16" font-weight="normal" fill="#2D7891">
+            <tspan x="48" y="64">arr = </tspan>
+            <tspan x="48" y="84">  ['A', 'B', 'C']</tspan>
+        </text>
+        <text id="UPDATE" font-family="SourceCodePro-Regular, Source Code Pro" font-size="16" font-weight="normal" fill="#1E5F74">
+            <tspan x="309.7" y="131">UPDATE</tspan>
+        </text>
+        <text id="UPDATE-Copy" font-family="SourceCodePro-Regular, Source Code Pro" font-size="16" font-weight="normal" fill="#1E5F74">
+            <tspan x="309.7" y="198">UPDATE</tspan>
+        </text>
+        <text id="UPDATE-Copy-2" font-family="SourceCodePro-Regular, Source Code Pro" font-size="16" font-weight="normal" fill="#1E5F74">
+            <tspan x="309.7" y="265">UPDATE</tspan>
+        </text>
+        <text id="arr-=-['X',-'A',-'B'" font-family="SourceCodePro-Regular, Source Code Pro" font-size="16" font-weight="normal" fill="#2D7891">
+            <tspan x="442" y="64">arr = </tspan>
+            <tspan x="442" y="84"> ['X', 'A', 'B', 'C']</tspan>
+        </text>
+        <path id="Line-3" d="M422,130 L431,134.5 L422,139 L422,135 L256,135 L256,134 L422,134 L422,130 Z" fill="#F5B461" fill-rule="nonzero"></path>
+        <path id="Line-3-Copy-3" d="M422,73 L431,77.5 L422,82 L422,78 L256,78 L256,77 L422,77 L422,73 Z" fill="#1E5F74" fill-rule="nonzero"></path>
+        <path id="Line-3-Copy" d="M422,197 L431,201.5 L422,206 L422,202 L256,202 L256,201 L422,201 L422,197 Z" fill="#F5B461" fill-rule="nonzero"></path>
+        <path id="Line-3-Copy-2" d="M422,264 L431,268.5 L422,273 L422,269 L256,269 L256,268 L422,268 L422,264 Z" fill="#F5B461" fill-rule="nonzero"></path>
+    </g>
+</svg>
