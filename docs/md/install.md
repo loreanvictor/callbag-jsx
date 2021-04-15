@@ -25,6 +25,7 @@ template and follow the instructions on the README of the template repository.
 | &nbsp; | <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" width="24" style="vertical-align: -2px"/> Template | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" width="24" style="vertical-align:-2px"/> Template |
 | -------------------------------- | -------------------------------------------------------- | -------------------------------------- |
 | <small>Transpiler</small>        | [Babel][3] <small>(plugin-transform-react-jsx)</small>   | [TypeScript][4]                        |
+| <small>Dev Server</small>        | [Snowpack][11]                                           | [Snowpack][11]                         |
 | <small>Bundler</small>           | [Webpack][5]                                             | [Webpack][5]                           |
 | <small>Linter</small>            | [ESLint][5a]                                             | [typescript-eslint][5b]                |
 | <small>Type Checking</small>     | No                                                       | Yes                                    |
@@ -44,11 +45,22 @@ template and follow the instructions on the README of the template repository.
 [8]: https://github.com/loreanvictor/callbag-jsx-starter-ts
 [9]: :Button (label=Use Template, url=https://github.com/loreanvictor/callbag-jsx-starter-js/generate)
 [10]: :Button (label=Use Template, url=https://github.com/loreanvictor/callbag-jsx-starter-ts/generate)
+[11]: https://www.snowpack.dev
 
 <br>
 
 > 👉 If you do not have a GitHub account or don't want the repo on GitHub,
-> clone any of the template repos and reset the origin.
+> you can conveniently start a new project using [`degit`](https://github.com/Rich-Harris/degit):
+> ```bash
+> # get the files
+> npx degit loreanvictor/callbag-jsx-starter-js
+>
+> # install dependencies
+> npm i
+>
+> # start your project
+> npm start
+> ```
 
 <br>
 
@@ -78,14 +90,12 @@ pragmas at the beginning of your `.tsx` / `.jsx` files:
 
 <br>
 
-> Though its not recommended, you CAN use `callbag-jsx` without JSX, and you would not need a transpiler as well.
-> [Read this entry](/jsx) to learn more about using `callbag-jsx` without JSX.
+👉 It is recommended to configure your transpiler on a project level instead of including per-file configs.
+Here are how sample configurations would look like with popular build tools:
 
 <br>
 
-👉 It is recommended to configure your transpiler on a project level instead of including per-file configs.
-
-When using Babel, configure JSX as follows:
+### Babel
 
 ```json | .babelrc
 {
@@ -100,7 +110,7 @@ When using Babel, configure JSX as follows:
 
 <br>
 
-When using TypeScript, configure JSX as follows:
+### TypeScript
 
 ```json | tsconfig.json
 {
@@ -124,6 +134,28 @@ When using TypeScript, configure JSX as follows:
  ]
 }
 ```
+
+<br>
+
+### Snowpack
+
+```js | snowpack.config.js
+module.exports = {
+  mount: { /* ... */ },
+  plugins: [ /* ... */ ],
+  packageOptions: { /* ... */ },
+  devOptions: { /* ... */ },
+  buildOptions: {
+/*!*/    jsxFactory: 'renderer.create',
+/*!*/    jsxFragment: 'renderer.fragment',
+  },
+}
+```
+
+<br>
+
+> Though its not recommended, you CAN use `callbag-jsx` without JSX, and you would not need a transpiler as well.
+> [Read this entry](/jsx) to learn more about using `callbag-jsx` without JSX.
 
 <br>
 
