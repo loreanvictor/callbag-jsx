@@ -156,13 +156,22 @@ be updated (since the _content_ of all indices of the array have changed):
 <img src="/docs/assets/keyed-list-explained-1.png"/>
 </div>
 
-In some cases, this ☝️ is not the desired behavior. It can be inefficient to update all elements
-for a simple prepend, or you might need a more consistent mapping of elements to array items.
+In some cases, this ☝️ is not the desired behavior. For example:
 
-You can specify how list items are mapped to DOM elements using a _key function_:
+- When you recurringly prepend items to your list (or insert in the middle), this can be inefficient.
+- When you want to manually modify the DOM, this can lead to mistakenly modifying the wrong elements.
+
+You change this behavior by providing a _mapping_ between items of your list and DOM elements, in form of a _key function_:
 
 ```tsx
-const key = x => x;
+// map each element to a property
+//
+const key = x => x.id
+
+// or, when list items are unique strings,
+// use them directly as keys
+//
+const key = x => x
 ```
 
 <div align="center">
